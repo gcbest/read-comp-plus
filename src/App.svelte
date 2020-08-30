@@ -6,6 +6,10 @@
   const body: HTMLElement = window.document.body;
   const theme: string | undefined = localStorage.getItem('theme');
   let text: string | undefined = '';
+  let visible: boolean = false;
+
+  const toggleTextArea = () => (visible = !visible);
+
   if (theme) body.classList.add('dark-mode');
 </script>
 
@@ -34,6 +38,7 @@
 <main>
   <h1 class="text-red-400">The rest of our app will be here</h1>
   <Button {body} {theme}>Toggle</Button>
-  <TextArea {text} />
+  <button on:click={toggleTextArea}>Show text</button>
+  <TextArea {text} {visible} />
 
 </main>
