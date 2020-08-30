@@ -1,7 +1,13 @@
-<script>
-  function toggle() {
-    window.document.body.classList.toggle('dark-mode');
-  }
+<script lang="ts">
+  export let body: HTMLElement;
+  export let theme: string | undefined;
+
+  const toggle = () => {
+    if (theme) localStorage.removeItem('theme');
+    else localStorage.setItem('theme', 'dark');
+
+    body.classList.toggle('dark-mode');
+  };
 </script>
 
 <style>
