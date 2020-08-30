@@ -1,30 +1,16 @@
 <script lang="ts">
-	export let name: string;
+  import Tailwind from './Tailwind.svelte';
 </script>
 
-<main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-</main>
-
-<style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
+<style lang="scss">
+  main {
+    h1 {
+      font-size: 2rem;
+    }
+  }
 </style>
+
+<Tailwind />
+<main>
+  <h1 class="text-red-400">The rest of our app will be here</h1>
+</main>
