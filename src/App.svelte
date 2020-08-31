@@ -4,6 +4,7 @@
   import TextArea from './components/TextArea.svelte';
   import Header from './components/Header.svelte';
   import OptionsArea from './components/OptionsArea.svelte';
+  import SideNav from './components/SideNav.svelte';
 
   const body: HTMLElement = window.document.body;
   const theme: string | undefined = localStorage.getItem('theme');
@@ -12,6 +13,11 @@
   let isTextAreaVisible: boolean = false;
 
   if (theme) body.classList.add('dark-mode');
+
+  const openNav = () => {
+    document.getElementById('mySidenav').style.width = '250px';
+    document.getElementById('main').style.marginLeft = '250px';
+  };
 </script>
 
 <style lang="scss">
@@ -27,6 +33,11 @@
     background-color: #1d3040;
     color: #bfc2c7;
   }
+
+  main {
+    transition: margin-left 0.5s;
+    padding: 1rem;
+  }
 </style>
 
 <Tailwind />
@@ -34,6 +45,7 @@
   <Header />
 
   <Button {body} {theme}>Toggle</Button>
+  <SideNav />
   <!-- <button
     class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
     on:click={toggleTextArea}>
@@ -41,6 +53,6 @@
   </button> -->
   <OptionsArea bind:visible={isTextAreaVisible} />
   <TextArea {text} {isTextAreaVisible} />
-  <span class="material-icons">settings</span>
+  <span class="material-icons" on:click={openNav}>settings</span>
 
 </main>
