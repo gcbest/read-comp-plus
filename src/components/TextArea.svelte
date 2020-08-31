@@ -2,7 +2,7 @@
   import { fade, fly } from 'svelte/transition';
 
   export let text: string;
-  export let visible: boolean;
+  export let isTextAreaVisible: boolean;
 </script>
 
 <style>
@@ -19,10 +19,10 @@
   }
 </style>
 
-{#if visible}
+{#if isTextAreaVisible}
 
   <textarea
-    in:fly={{ y: 200, duration: 2000 }}
+    in:fly={{ y: 200, duration: 1000 }}
     out:fade
     class="resize-y"
     name="content"
