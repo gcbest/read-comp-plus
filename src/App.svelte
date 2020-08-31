@@ -38,7 +38,12 @@
 <main>
   <h1 class="text-red-400">The rest of our app will be here</h1>
   <Button {body} {theme}>Toggle</Button>
-  <button on:click={toggleTextArea}>Show text</button>
+  <button
+    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+    on:click={toggleTextArea}>
+    Show text
+  </button>
   <TextArea {text} {visible} />
+  <span class="material-icons">settings</span>
 
 </main>
