@@ -39,7 +39,7 @@
     on:click={toggleTextArea}>
     Show text
   </button> -->
-  <OptionsArea />
+  <OptionsArea bind:visible={isTextAreaVisible} />
   <TextArea {text} {isTextAreaVisible} />
   <span class="material-icons">settings</span>
 

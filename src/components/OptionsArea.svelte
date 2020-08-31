@@ -1,7 +1,8 @@
 <script lang="ts">
   import OptionBtn from './OptionBtn.svelte';
 
-  let visible: boolean = false;
+  // export let isTextAreaVisible: boolean = false;
+  export let visible: boolean = false;
 
   const toggleTextArea = () => (visible = !visible);
 </script>
