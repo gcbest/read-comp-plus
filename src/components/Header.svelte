@@ -12,18 +12,20 @@
 </script>
 
 <style>
+  li {
+    margin: 0 1rem;
+  }
+
   /* DARK THEME */
   :global(body.dark-mode) header {
     @apply text-red-400;
   }
 </style>
 
-<nav class="flex justify-between items-center">
-
+<nav class="relative">
   <header class="text-blue-500 text-2xl text-center m-auto">Read Comp +</header>
-  <ul class="flex justify-between items-center">
+  <ul class="absolute top-0 right-0 flex justify-between items-center p-2">
     <li>
-
       <ToggleDarkMode {body} {theme} bind:darkMode />
     </li>
     <li>
