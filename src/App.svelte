@@ -1,6 +1,5 @@
 <script lang="ts">
   import Tailwind from './Tailwind.svelte';
-  import Button from './components/Button.svelte';
   import TextArea from './components/TextArea.svelte';
   import Header from './components/Header.svelte';
   import OptionsArea from './components/OptionsArea.svelte';
@@ -9,10 +8,13 @@
   const body: HTMLElement = window.document.body;
   const theme: string | undefined = localStorage.getItem('theme');
   let text: string | undefined = '';
-
   let isTextAreaVisible: boolean = false;
+  let darkMode: boolean = false;
 
-  if (theme) body.classList.add('dark-mode');
+  if (theme) {
+    darkMode = true;
+    body.classList.add('dark-mode');
+  }
 </script>
 
 <style lang="scss">
@@ -37,14 +39,8 @@
 
 <Tailwind />
 <main>
-  <Header />
-  <Button {body} {theme}>Toggle</Button>
+  <Header {body} {theme} bind:darkMode />
   <SideNav />
-  <!-- <button
-    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-    on:click={toggleTextArea}>
-    Show text
-  </button> -->
   <OptionsArea bind:visible={isTextAreaVisible} />
   <TextArea {text} {isTextAreaVisible} />
 </main>
