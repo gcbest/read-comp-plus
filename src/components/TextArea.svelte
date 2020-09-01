@@ -1,8 +1,10 @@
 <script lang="ts">
   import { fade, fly } from 'svelte/transition';
 
-  export let text: string;
   export let isTextAreaVisible: boolean;
+  let text: string;
+  const placeholder: string =
+    'To get started, just copy and paste text that you would like to read in this text box.';
 </script>
 
 <style>
@@ -11,6 +13,7 @@
     margin: auto;
     display: block;
     background-color: #f5f5f5;
+    color: red;
   }
 
   :global(body.dark-mode) textarea {
@@ -28,6 +31,6 @@
     name="content"
     cols="30"
     rows="10">
-    {text}
+    {text ? text : placeholder}
   </textarea>
 {/if}

@@ -33,7 +33,7 @@
 <nav class="relative">
   <a href="/">
     <header class="text-blue-500 text-2xl text-center m-auto">
-      Read Comp +
+      Read Comp+
     </header>
   </a>
   <ul class="absolute top-0 right-0 flex justify-between items-center p-2">

@@ -7,7 +7,6 @@
 
   const body: HTMLElement = window.document.body;
   const theme: string | undefined = localStorage.getItem('theme');
-  let text: string | undefined = '';
   let isTextAreaVisible: boolean = false;
   let darkMode: boolean = false;
 
@@ -42,5 +41,5 @@
   <Header {body} {theme} bind:darkMode />
   <SideNav />
   <OptionsArea bind:visible={isTextAreaVisible} />
-  <TextArea {text} {isTextAreaVisible} />
+  <TextArea {isTextAreaVisible} />
 </main>

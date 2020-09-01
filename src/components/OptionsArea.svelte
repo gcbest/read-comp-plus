@@ -7,8 +7,8 @@
   const toggleTextArea = () => (visible = !visible);
 </script>
 
-<section>
-  <p class="text-center">Hello and Welcome to Read Comp +!</p>
+<section class="my-3">
+  <p class="text-center my-3">Hello and Welcome to Read Comp+!</p>
   <div class="flex justify-evenly">
     <OptionBtn handleClick={toggleTextArea}>Text</OptionBtn>
     <OptionBtn>URL</OptionBtn>
