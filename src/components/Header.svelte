@@ -16,6 +16,14 @@
     margin: 0 1rem;
   }
 
+  :global(a:hover) {
+    text-decoration: none;
+  }
+
+  button {
+    @apply px-2 pt-2 border border-blue-500 rounded inline-block align-middle;
+  }
+
   /* DARK THEME */
   :global(body.dark-mode) header {
     @apply text-red-400;
@@ -23,15 +31,23 @@
 </style>
 
 <nav class="relative">
-  <header class="text-blue-500 text-2xl text-center m-auto">Read Comp +</header>
+  <a href="/">
+    <header class="text-blue-500 text-2xl text-center m-auto">
+      Read Comp +
+    </header>
+  </a>
   <ul class="absolute top-0 right-0 flex justify-between items-center p-2">
     <li>
-      <ToggleDarkMode {body} {theme} bind:darkMode />
+      <button>
+        <ToggleDarkMode {body} {theme} bind:darkMode />
+      </button>
     </li>
     <li>
-      <span class="material-icons cursor-pointer" on:click={openNav}>
-        settings
-      </span>
+      <button>
+        <span class="material-icons cursor-pointer" on:click={openNav}>
+          settings
+        </span>
+      </button>
 
     </li>
   </ul>
