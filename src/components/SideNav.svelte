@@ -13,22 +13,22 @@
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #111;
+    background-color: #457b9d;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
   }
 
-  .sidenav a {
+  .sidenav span {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
-    color: #818181;
+    /* color: #818181; */
     display: block;
     transition: 0.3s;
   }
 
-  .sidenav a:hover {
+  .sidenav span:hover {
     color: #f1f1f1;
   }
 
@@ -38,6 +38,13 @@
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
+  }
+
+  /* DARK THEME */
+  :global(body.dark-mode) .sidenav {
+    background-color: #457b9d;
+    /* color: #bfc2c7; */
+    /* @apply text-red-400; */
   }
 
   @media screen and (max-height: 450px) {
@@ -51,25 +58,20 @@
 </style>
 
 <aside id="mySidenav" class="sidenav">
-  <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="#">About</a>
-    <a href="#">Services</a>
-    <a href="#">Clients</a>
-    <a href="#">Contact</a> -->
   <nav>
     <ul>
       <li>
-        <a class="closebtn" on:click={closeNav}>&times;</a>
+        <span class="closebtn cursor-pointer" on:click={closeNav}>&times;</span>
 
       </li>
       <li>
-        <a href="/home">Home</a>
+        <span class="text-red-400" href="/home">Home</span>
       </li>
       <li>
-        <a href="/about">About</a>
+        <span class="text-red-400" href="/about">About</span>
       </li>
       <li>
-        <a href="/contact">Contact us</a>
+        <span class="text-red-400" href="/contact">Contact us</span>
       </li>
     </ul>
   </nav>

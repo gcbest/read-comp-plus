@@ -13,11 +13,6 @@
   let isTextAreaVisible: boolean = false;
 
   if (theme) body.classList.add('dark-mode');
-
-  const openNav = () => {
-    document.getElementById('mySidenav').style.width = '250px';
-    document.getElementById('main').style.marginLeft = '250px';
-  };
 </script>
 
 <style lang="scss">
@@ -43,7 +38,6 @@
 <Tailwind />
 <main>
   <Header />
-
   <Button {body} {theme}>Toggle</Button>
   <SideNav />
   <!-- <button
@@ -53,6 +47,4 @@
   </button> -->
   <OptionsArea bind:visible={isTextAreaVisible} />
   <TextArea {text} {isTextAreaVisible} />
-  <span class="material-icons" on:click={openNav}>settings</span>
-
 </main>
