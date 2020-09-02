@@ -16,7 +16,7 @@
 </script>
 
 <style>
-  .btn {
+  /* .btn {
     @apply font-bold py-2 px-4 rounded;
     text-transform: uppercase;
   }
@@ -27,6 +27,9 @@
 
   .btn-blue:hover {
     @apply bg-blue-700;
+  } */
+  button {
+    @apply px-2 pt-2 border border-blue-500 rounded inline-block align-middle;
   }
 
   :global(body.dark-mode) button {
@@ -37,11 +40,13 @@
 
 <!-- <button class="btn btn-blue" on:click={toggle}> -->
 {#if darkMode}
-  <span class="material-icons cursor-pointer" on:click={toggle}>wb_sunny</span>
+  <button on:click={toggle}>
+    <span class="material-icons cursor-pointer">wb_sunny</span>
+  </button>
 {:else}
-  <span class="material-icons cursor-pointer" on:click={toggle}>
-    brightness_2
-  </span>
+  <button on:click={toggle}>
+    <span class="material-icons cursor-pointer">brightness_2</span>
+  </button>
 {/if}
 
 <!-- <slot /> -->

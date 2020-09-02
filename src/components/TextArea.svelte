@@ -27,7 +27,7 @@
   <textarea
     in:fly={{ y: 200, duration: 1000 }}
     out:fade
-    class="resize-y"
+    class="resize-y text-red-500 p-4 rounded"
     name="content"
     cols="30"
     rows="10">

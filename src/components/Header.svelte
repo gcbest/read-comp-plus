@@ -24,6 +24,25 @@
     @apply px-2 pt-2 border border-blue-500 rounded inline-block align-middle;
   }
 
+  ul {
+    @apply absolute top-0 right-0 flex justify-between items-center p-2;
+  }
+
+  /* MOBILE VIEW */
+  @media only screen and (max-width: 600px) {
+    ul {
+      padding: 0;
+    }
+
+    .darkModeBtn {
+      display: none;
+    }
+
+    .settings {
+      border: none;
+    }
+  }
+
   /* DARK THEME */
   :global(body.dark-mode) header {
     @apply text-red-400;
@@ -36,19 +55,14 @@
       Read Comp+
     </header>
   </a>
-  <ul class="absolute top-0 right-0 flex justify-between items-center p-2">
-    <li>
-      <button>
-        <ToggleDarkMode {body} {theme} bind:darkMode />
-      </button>
+  <ul>
+    <li class="darkModeBtn">
+      <ToggleDarkMode {body} {theme} bind:darkMode />
     </li>
     <li>
-      <button>
-        <span class="material-icons cursor-pointer" on:click={openNav}>
-          settings
-        </span>
+      <button class="settings" on:click={openNav}>
+        <span class="material-icons cursor-pointer">settings</span>
       </button>
-
     </li>
   </ul>
 </nav>

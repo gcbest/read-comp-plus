@@ -1,8 +1,12 @@
 <script>
+  import Dropdown from './Dropdown.svelte';
+
   const closeNav = () => {
     document.getElementById('mySidenav').style.width = '0';
     document.getElementById('main').style.marginLeft = '0';
   };
+
+  const speedOptions = ['slow', 'medium', 'fast'];
 </script>
 
 <style>
@@ -47,7 +51,7 @@
     /* @apply text-red-400; */
   }
 
-  @media screen and (max-height: 450px) {
+  @media screen and (max-height: 600px) {
     .sidenav {
       padding-top: 15px;
     }
@@ -65,13 +69,7 @@
 
       </li>
       <li>
-        <span class="text-red-400" href="/home">Home</span>
-      </li>
-      <li>
-        <span class="text-red-400" href="/about">About</span>
-      </li>
-      <li>
-        <span class="text-red-400" href="/contact">Contact us</span>
+        <Dropdown title="Speed" options={speedOptions} />
       </li>
     </ul>
   </nav>
