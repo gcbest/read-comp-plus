@@ -39,7 +39,7 @@
 <Tailwind />
 <main>
   <Header {body} {theme} bind:darkMode />
-  <SideNav />
+  <SideNav {body} {theme} bind:darkMode />
   <OptionsArea bind:visible={isTextAreaVisible} />
   <TextArea {isTextAreaVisible} />
 </main>
