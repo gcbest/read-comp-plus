@@ -9,6 +9,7 @@
   const theme: string | undefined = localStorage.getItem('theme');
   let isTextAreaVisible: boolean = false;
   let darkMode: boolean = false;
+  let open: boolean = false;
 
   if (theme) {
     darkMode = true;
@@ -38,8 +39,8 @@
 
 <Tailwind />
 <main>
-  <Header {body} {theme} bind:darkMode />
-  <SideNav {body} {theme} bind:darkMode />
+  <Header {body} {theme} bind:open bind:darkMode />
+  <SideNav {body} {theme} bind:open bind:darkMode />
   <OptionsArea bind:visible={isTextAreaVisible} />
   <TextArea {isTextAreaVisible} />
 </main>

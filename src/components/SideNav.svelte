@@ -1,29 +1,63 @@
 <script lang="ts">
+  import { fly } from 'svelte/transition';
   import Dropdown from './Dropdown.svelte';
   import ToggleDarkMode from './ToggleDarkMode.svelte';
 
   export let body: HTMLElement;
   export let theme: string | undefined;
   export let darkMode: boolean | undefined;
+  export let open: boolean;
 
-  const closeNav = () => {
-    document.getElementById('mySidenav').style.width = '0';
-  };
+  const closeNav = () => (open = false);
 
   const speedOptions = ['slow', 'medium', 'fast'];
+
+  function clickOutside(node, { enabled: initialEnabled, cb }) {
+    const handleOutsideClick = ({ target }) => {
+      console.log(node);
+      console.log(target);
+      console.log(target.classList.contains('toggle-dark-icon'));
+
+      if (
+        !node.contains(target) &&
+        target !== document.querySelector('.settings') &&
+        target !== document.querySelector('#settings-icon') &&
+        !target.classList.contains('toggle-dark-icon') &&
+        !target.classList.contains('toggle-dark-btn')
+      ) {
+        cb();
+      }
+    };
+
+    function update({ enabled }) {
+      if (enabled) {
+        window.addEventListener('click', handleOutsideClick);
+      } else {
+        window.removeEventListener('click', handleOutsideClick);
+      }
+    }
+
+    update({ enabled: initialEnabled });
+    return {
+      update,
+      destroy() {
+        window.removeEventListener('click', handleOutsideClick);
+      },
+    };
+  }
 </script>
 
 <style>
   .sidenav {
     height: 100%;
-    width: 0;
+    width: 250px;
     position: fixed;
     z-index: 1;
     top: 0;
     right: 0;
     background-color: #a8dadc;
     overflow-x: hidden;
-    transition: 0.5s;
+    transition: 0.3s;
     padding-top: 60px;
   }
 
@@ -85,18 +119,24 @@
   }
 </style>
 
-<aside id="mySidenav" class="sidenav">
-  <ul>
-    <li>
-      <span class="toggle-dark-mode">
-        <ToggleDarkMode {body} {theme} bind:darkMode />
-      </span>
-      <span class="closebtn cursor-pointer" on:click={closeNav}>&times;</span>
-    </li>
-    <div class="options absolute">
+{#if open}
+  <aside
+    transition:fly={{ x: 250, opacity: 1 }}
+    id="mySidenav"
+    class="sidenav"
+    use:clickOutside={{ enabled: open, cb: closeNav }}>
+    <ul>
       <li>
-        <Dropdown title="Speed" options={speedOptions} />
+        <span class="toggle-dark-mode">
+          <ToggleDarkMode {body} {theme} bind:darkMode />
+        </span>
+        <span class="closebtn cursor-pointer" on:click={closeNav}>&times;</span>
       </li>
-    </div>
-  </ul>
-</aside>
+      <div class="options absolute">
+        <li>
+          <Dropdown title="Speed" options={speedOptions} />
+        </li>
+      </div>
+    </ul>
+  </aside>
+{/if}

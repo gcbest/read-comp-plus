@@ -4,10 +4,9 @@
   export let body: HTMLElement;
   export let theme: string | undefined;
   export let darkMode: boolean | undefined;
+  export let open: boolean;
 
-  const openNav = () => {
-    document.getElementById('mySidenav').style.width = '250px';
-  };
+  const openNav = () => (open = true);
 </script>
 
 <style>
@@ -49,18 +48,20 @@
 </style>
 
 <nav class="relative">
-  <!-- <a href="/"> -->
-  <header id="myHeader" class="text-blue-500 text-2xl text-center m-auto">
-    Read Comp+
-  </header>
-  <!-- </a> -->
+  <a href="/">
+    <header id="myHeader" class="text-blue-500 text-2xl text-center m-auto">
+      Read Comp+
+    </header>
+  </a>
   <ul>
     <li class="darkModeBtn">
       <ToggleDarkMode {body} {theme} bind:darkMode />
     </li>
     <li>
       <button class="settings" on:click={openNav}>
-        <span class="material-icons cursor-pointer">settings</span>
+        <span
+          id="settings-icon"
+          class="material-icons cursor-pointer">settings</span>
       </button>
     </li>
   </ul>

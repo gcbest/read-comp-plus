@@ -38,16 +38,13 @@
   }
 </style>
 
-<!-- <button class="btn btn-blue" on:click={toggle}> -->
 {#if darkMode}
-  <button on:click={toggle}>
-    <span class="material-icons cursor-pointer">wb_sunny</span>
+  <button class="toggle-dark-btn" on:click={toggle}>
+    <span class="material-icons cursor-pointer toggle-dark-icon">wb_sunny</span>
   </button>
 {:else}
-  <button on:click={toggle}>
-    <span class="material-icons cursor-pointer">brightness_2</span>
+  <button class="toggle-dark-btn" on:click={toggle}>
+    <span
+      class="material-icons cursor-pointer toggle-dark-icon">brightness_2</span>
   </button>
 {/if}
-
-<!-- <slot /> -->
-<!-- </button> -->
