@@ -14,10 +14,6 @@
 
   function clickOutside(node, { enabled: initialEnabled, cb }) {
     const handleOutsideClick = ({ target }) => {
-      console.log(node);
-      console.log(target);
-      console.log(target.classList.contains('toggle-dark-icon'));
-
       if (
         !node.contains(target) &&
         target !== document.querySelector('.settings') &&
