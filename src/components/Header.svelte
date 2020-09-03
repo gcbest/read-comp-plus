@@ -7,7 +7,6 @@
 
   const openNav = () => {
     document.getElementById('mySidenav').style.width = '250px';
-    document.getElementById('main').style.marginLeft = '250px';
   };
 </script>
 
@@ -50,11 +49,11 @@
 </style>
 
 <nav class="relative">
-  <a href="/">
-    <header class="text-blue-500 text-2xl text-center m-auto">
-      Read Comp+
-    </header>
-  </a>
+  <!-- <a href="/"> -->
+  <header id="myHeader" class="text-blue-500 text-2xl text-center m-auto">
+    Read Comp+
+  </header>
+  <!-- </a> -->
   <ul>
     <li class="darkModeBtn">
       <ToggleDarkMode {body} {theme} bind:darkMode />
