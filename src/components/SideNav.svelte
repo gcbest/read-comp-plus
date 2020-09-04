@@ -48,6 +48,7 @@
     z-index: 1;
     top: 0;
     right: 0;
+    /* background-color: #a8dadc; */
     background-color: #a8dadc;
     overflow-x: hidden;
     transition: 0.3s;
@@ -97,8 +98,10 @@
 
   /* DARK THEME */
   :global(body.dark-mode) .sidenav {
-    background-color: #457b9d;
-    /* color: #bfc2c7; */
+    /* background-color: #457b9d; */
+    /* background-color: #5590b4; */
+    background-color: #71a2c1;
+    color: #bfc2c7;
     /* @apply text-red-400; */
   }
 
@@ -135,7 +138,7 @@
       </li>
       <div class="settings absolute">
         <li>
-          <label for="wpm">Words Per Minute</label>
+          <label class="text-gray-300 font-semibold" for="wpm">Words Per Minute</label>
           <input
             id="wpm"
             class="wpm-input focus:outline-none focus:shadow-outline"
