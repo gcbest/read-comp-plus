@@ -2,11 +2,12 @@
   import { fly } from 'svelte/transition';
   import Dropdown from './Dropdown.svelte';
   import ToggleDarkMode from './ToggleDarkMode.svelte';
-  import { open } from '../stores';
+  import { open, wpm } from '../stores';
 
   const closeNav = () => open.set(false);
 
-  const speedOptions = ['slow', 'medium', 'fast'];
+  const fontOptions = ['helvetica', 'arial', 'times new roman'];
+  const colorOptions = ['red', 'blue', 'green', 'black'];
 
   function clickOutside(node, { enabled: initialEnabled, cb }) {
     const handleOutsideClick = ({ target }) => {
@@ -82,9 +83,17 @@
     display: block;
   }
 
-  /* .speed-input {
-    @apply bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal;
-  } */
+  .wpm-input {
+    @apply bg-white border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal;
+  }
+
+  .settings {
+    top: 8rem;
+  }
+
+  .settings li {
+    margin: 1.5rem;
+  }
 
   /* DARK THEME */
   :global(body.dark-mode) .sidenav {
@@ -108,10 +117,6 @@
       left: 0;
       padding: 1.5rem;
     }
-
-    .options {
-      top: 10rem;
-    }
   }
 </style>
 
@@ -128,27 +133,19 @@
         </span>
         <span class="closebtn cursor-pointer" on:click={closeNav}>&times;</span>
       </li>
-      <div class="options absolute">
+      <div class="settings absolute">
         <li>
-          <!-- <input
-            class="bg-white focus:outline-none focus:shadow-outline border
-              border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none
-              leading-normal"
-            type="email"
-            placeholder="jane@example.com" />
-
+          <label for="wpm">Words Per Minute</label>
           <input
-            class="speed-input bg-white focus:outline-none focus:shadow-outline
-              border border-gray-300 rounded-lg py-2 px-4 block w-full
-              appearance-none leading-normal"
+            id="wpm"
+            class="wpm-input focus:outline-none focus:shadow-outline"
             type="number"
             min="0"
-            placeholder="200" /> -->
-
-          <button>red</button>
+            placeholder="200 wpm" />
         </li>
-        <li>
-          <Dropdown title="Speed" options={speedOptions} />
+        <li class="flex justify-between">
+          <Dropdown title="Font" options={fontOptions} />
+          <Dropdown title="Color" options={colorOptions} />
         </li>
       </div>
     </ul>

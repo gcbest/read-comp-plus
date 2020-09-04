@@ -10,14 +10,14 @@
   }
 
   ul li:not(:first-child):not(:last-child) {
-    @apply bg-gray-200 py-2 px-4 block whitespace-no-wrap border-solid border-gray-500 border-t border-b;
+    @apply bg-gray-200 py-2 px-4 block whitespace-no-wrap border-solid border-gray-500 border-b;
   }
 
-  ul li:first-child a {
-    @apply rounded-t bg-gray-200 py-2 px-4 block whitespace-no-wrap;
+  ul li:first-child {
+    @apply rounded-t border-solid border-gray-500 border-b  bg-gray-200 py-2 px-4 block whitespace-no-wrap;
   }
 
-  ul li:last-child a {
+  ul li:last-child {
     @apply rounded-b bg-gray-200 py-2 px-4 block whitespace-no-wrap;
   }
 </style>
@@ -30,7 +30,7 @@
   </button>
   <ul class="dropdown-menu absolute hidden text-gray-700 pt-1">
     {#each options as opt}
-      <li class="border-solid"><a href="#">{opt}</a></li>
+      <li class="border-solid cursor-pointer">{opt}</li>
     {/each}
   </ul>
 </div>
