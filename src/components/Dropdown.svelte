@@ -30,7 +30,7 @@
   </button>
   <ul class="dropdown-menu absolute hidden text-gray-700 pt-1">
     {#each options as opt}
-      <li class="border-solid cursor-pointer">{opt}</li>
+      <li class="border-solid cursor-pointer" style="color: {opt}">{opt}</li>
     {/each}
   </ul>
 </div>

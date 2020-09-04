@@ -2,7 +2,7 @@
   import { fly } from 'svelte/transition';
   import Dropdown from './Dropdown.svelte';
   import ToggleDarkMode from './ToggleDarkMode.svelte';
-  import { open, wpm } from '../stores';
+  import { open, wpm, font } from '../stores';
 
   const closeNav = () => open.set(false);
 
@@ -144,6 +144,7 @@
             class="wpm-input focus:outline-none focus:shadow-outline"
             type="number"
             min="0"
+            value={$wpm}
             placeholder="200 wpm" />
         </li>
         <li class="flex justify-between">
