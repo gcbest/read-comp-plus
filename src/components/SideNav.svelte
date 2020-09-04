@@ -6,7 +6,7 @@
 
   const closeNav = () => open.set(false);
 
-  const fontOptions = ['helvetica', 'arial', 'times new roman'];
+  const fontOptions = ['Helvetica', 'Arial', 'Times New Roman', 'sans-serif'];
   const colorOptions = ['red', 'blue', 'green', 'black'];
 
   function clickOutside(node, { enabled: initialEnabled, cb }) {

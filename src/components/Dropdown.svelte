@@ -1,6 +1,15 @@
 <script lang="ts">
   export let title: string;
   export let options: string[];
+
+  const showStyle = (attr: string): string => {
+    switch (title) {
+      case 'Color':
+        return `color:${attr}`;
+      case 'Font':
+        return `font-family:'${attr}'`;
+    }
+  };
 </script>
 
 <style>
@@ -30,7 +39,9 @@
   </button>
   <ul class="dropdown-menu absolute hidden text-gray-700 pt-1">
     {#each options as opt}
-      <li class="border-solid cursor-pointer" style="color: {opt}">{opt}</li>
+      <li class="border-solid cursor-pointer opts" style={showStyle(opt)}>
+        {opt}
+      </li>
     {/each}
   </ul>
 </div>
