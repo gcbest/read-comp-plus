@@ -1,8 +1,6 @@
 <script lang="ts">
   import ToggleDarkMode from './ToggleDarkMode.svelte';
 
-  export let body: HTMLElement;
-  export let theme: string | undefined;
   import { open } from '../stores';
 
   const openNav = () => open.set(true);
@@ -54,7 +52,7 @@
   </a>
   <ul>
     <li class="darkModeBtn">
-      <ToggleDarkMode {body} {theme} bind:darkMode />
+      <ToggleDarkMode />
     </li>
     <li>
       <button class="settings" on:click={openNav}>

@@ -1,9 +1,5 @@
 <script lang="ts">
-  export let body: HTMLElement;
-  export let theme: string | undefined;
-  // export let darkMode: boolean | undefined;
-
-  import { darkMode } from '../stores';
+  import { darkMode, theme, body } from '../stores';
 
   const updateLocalStorage = () => {
     if (theme) localStorage.removeItem('theme');
@@ -12,7 +8,7 @@
 
   const toggle = () => {
     updateLocalStorage();
-    darkMode.set(!darkMode);
+    darkMode.set(!$darkMode);
     body.classList.toggle('dark-mode');
   };
 </script>
@@ -40,7 +36,7 @@
   }
 </style>
 
-{#if darkMode}
+{#if $darkMode}
   <button class="toggle-dark-btn" on:click={toggle}>
     <span class="material-icons cursor-pointer toggle-dark-icon">wb_sunny</span>
   </button>

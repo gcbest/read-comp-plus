@@ -4,9 +4,6 @@
   import ToggleDarkMode from './ToggleDarkMode.svelte';
   import { open } from '../stores';
 
-  export let body: HTMLElement;
-  export let theme: string | undefined;
-
   const closeNav = () => open.set(false);
 
   const speedOptions = ['slow', 'medium', 'fast'];
@@ -85,6 +82,10 @@
     display: block;
   }
 
+  /* .speed-input {
+    @apply bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal;
+  } */
+
   /* DARK THEME */
   :global(body.dark-mode) .sidenav {
     background-color: #457b9d;
@@ -114,7 +115,7 @@
   }
 </style>
 
-{#if open}
+{#if $open}
   <aside
     transition:fly={{ x: 250, opacity: 1 }}
     id="mySidenav"
@@ -123,11 +124,29 @@
     <ul>
       <li>
         <span class="toggle-dark-mode">
-          <ToggleDarkMode {body} {theme} />
+          <ToggleDarkMode />
         </span>
         <span class="closebtn cursor-pointer" on:click={closeNav}>&times;</span>
       </li>
       <div class="options absolute">
+        <li>
+          <!-- <input
+            class="bg-white focus:outline-none focus:shadow-outline border
+              border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none
+              leading-normal"
+            type="email"
+            placeholder="jane@example.com" />
+
+          <input
+            class="speed-input bg-white focus:outline-none focus:shadow-outline
+              border border-gray-300 rounded-lg py-2 px-4 block w-full
+              appearance-none leading-normal"
+            type="number"
+            min="0"
+            placeholder="200" /> -->
+
+          <button>red</button>
+        </li>
         <li>
           <Dropdown title="Speed" options={speedOptions} />
         </li>
