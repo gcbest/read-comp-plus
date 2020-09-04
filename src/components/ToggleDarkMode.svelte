@@ -1,7 +1,9 @@
 <script lang="ts">
   export let body: HTMLElement;
   export let theme: string | undefined;
-  export let darkMode: boolean | undefined;
+  // export let darkMode: boolean | undefined;
+
+  import { darkMode } from '../stores';
 
   const updateLocalStorage = () => {
     if (theme) localStorage.removeItem('theme');
@@ -10,7 +12,7 @@
 
   const toggle = () => {
     updateLocalStorage();
-    darkMode = !darkMode;
+    darkMode.set(!darkMode);
     body.classList.toggle('dark-mode');
   };
 </script>

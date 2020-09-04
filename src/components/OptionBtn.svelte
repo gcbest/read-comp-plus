@@ -1,5 +1,10 @@
 <script lang="ts">
-  export let handleClick: () => void;
+  // export let handleClick: () => void;
+  import { isTextAreaVisible } from '../stores';
+
+  const handleClick = () => {
+    isTextAreaVisible.set(!isTextAreaVisible);
+  };
 </script>
 
 <style>

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { fade, fly } from 'svelte/transition';
+  import { isTextAreaVisible } from '../stores';
 
-  export let isTextAreaVisible: boolean;
   let text: string;
   const placeholder: string =
     'To get started, just copy and paste text that you would like to read in this text box.';
@@ -23,7 +23,6 @@
 </style>
 
 {#if isTextAreaVisible}
-
   <textarea
     in:fly={{ y: 200, duration: 1000 }}
     out:fade

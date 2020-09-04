@@ -3,10 +3,9 @@
 
   export let body: HTMLElement;
   export let theme: string | undefined;
-  export let darkMode: boolean | undefined;
-  export let open: boolean;
+  import { open } from '../stores';
 
-  const openNav = () => (open = true);
+  const openNav = () => open.set(true);
 </script>
 
 <style>

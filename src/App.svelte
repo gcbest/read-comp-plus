@@ -4,15 +4,10 @@
   import Header from './components/Header.svelte';
   import OptionsArea from './components/OptionsArea.svelte';
   import SideNav from './components/SideNav.svelte';
-
-  const body: HTMLElement = window.document.body;
-  const theme: string | undefined = localStorage.getItem('theme');
-  let isTextAreaVisible: boolean = false;
-  let darkMode: boolean = false;
-  let open: boolean = false;
+  import { darkMode, theme, body } from './stores';
 
   if (theme) {
-    darkMode = true;
+    $darkMode = true;
     body.classList.add('dark-mode');
   }
 </script>
@@ -39,8 +34,8 @@
 
 <Tailwind />
 <main>
-  <Header {body} {theme} bind:open bind:darkMode />
-  <SideNav {body} {theme} bind:open bind:darkMode />
-  <OptionsArea bind:visible={isTextAreaVisible} />
-  <TextArea {isTextAreaVisible} />
+  <Header />
+  <SideNav />
+  <OptionsArea />
+  <TextArea />
 </main>

@@ -2,13 +2,12 @@
   import { fly } from 'svelte/transition';
   import Dropdown from './Dropdown.svelte';
   import ToggleDarkMode from './ToggleDarkMode.svelte';
+  import { open } from '../stores';
 
   export let body: HTMLElement;
   export let theme: string | undefined;
-  export let darkMode: boolean | undefined;
-  export let open: boolean;
 
-  const closeNav = () => (open = false);
+  const closeNav = () => open.set(false);
 
   const speedOptions = ['slow', 'medium', 'fast'];
 
@@ -124,7 +123,7 @@
     <ul>
       <li>
         <span class="toggle-dark-mode">
-          <ToggleDarkMode {body} {theme} bind:darkMode />
+          <ToggleDarkMode {body} {theme} />
         </span>
         <span class="closebtn cursor-pointer" on:click={closeNav}>&times;</span>
       </li>
