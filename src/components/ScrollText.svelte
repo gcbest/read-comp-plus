@@ -1,40 +1,23 @@
 <script>
   import { onMount } from 'svelte';
-
-  import { text, font, color, size } from '../stores';
-
-  function whichAnimationEvent() {
-    var t,
-      el = document.createElement('fakeelement');
-
-    var animations = {
-      animation: 'animationend',
-      OAnimation: 'oAnimationEnd',
-      MozAnimation: 'animationend',
-      WebkitAnimation: 'webkitAnimationEnd',
-    };
-
-    for (t in animations) {
-      if (el.style[t] !== undefined) {
-        return animations[t];
-      }
-    }
-  }
+  import { text, font, color, size, isReadingDoneAreaVisible } from '../stores';
+  import { whichAnimationEvent } from '../utils';
 
   const animationEvent = whichAnimationEvent();
 
   onMount(() => {
-    let p = document.querySelector('.scroll-up p');
-    const doneFunction = () => {
-      alert('DOOONNNE');
+    const textP = document.querySelector('.scroll-up p');
+    const doneNextSteps = () => {
+      isReadingDoneAreaVisible.set(true);
     };
-    p.addEventListener(animationEvent, doneFunction);
+
+    textP.addEventListener(animationEvent, doneNextSteps);
   });
 </script>
 
-<style style="text/css">
+<style>
   .scroll-up {
-    height: 80vh;
+    height: 72vh;
     overflow: hidden;
     position: relative;
   }

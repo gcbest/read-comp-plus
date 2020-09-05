@@ -6,6 +6,8 @@ export const { body }: { body: HTMLElement } = window.document;
 export const isTextAreaVisible: Writable<boolean> = writable(false);
 export const isOptionsAreaVisible: Writable<boolean> = writable(true);
 export const isReadingAreaVisible: Writable<boolean> = writable(false);
+export const isReviewAreaVisible: Writable<boolean> = writable(false);
+export const isReadingDoneAreaVisible: Writable<boolean> = writable(false);
 
 export const darkMode: Writable<boolean> = writable(false);
 export const open: Writable<boolean> = writable(false);

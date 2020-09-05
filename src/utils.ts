@@ -27,3 +27,22 @@ export const clickOutside = (node, { enabled: initialEnabled, cb }) => {
                 },
         };
 };
+
+export const whichAnimationEvent = () => {
+        let t;
+        const el = document.createElement('fakeelement');
+
+        const animations = {
+                animation: 'animationend',
+                OAnimation: 'oAnimationEnd',
+                MozAnimation: 'animationend',
+                WebkitAnimation: 'webkitAnimationEnd',
+        };
+
+        // eslint-disable-next-line no-restricted-syntax
+        for (t in animations) {
+                if (el.style[t] !== undefined) {
+                        return animations[t];
+                }
+        }
+};
