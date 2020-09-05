@@ -4,8 +4,9 @@
   import Header from './components/Header.svelte';
   import OptionsArea from './components/OptionsArea.svelte';
   import SideNav from './components/SideNav.svelte';
-  import { darkMode, theme, body } from './stores';
   import ReadingArea from './components/ReadingArea.svelte';
+  import ReviewArea from './components/ReviewArea.svelte';
+  import { darkMode, theme, body } from './stores';
 
   if (theme) {
     $darkMode = true;
@@ -40,4 +41,5 @@
   <OptionsArea />
   <TextArea />
   <ReadingArea />
+  <ReviewArea />
 </main>

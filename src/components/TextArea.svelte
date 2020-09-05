@@ -43,7 +43,7 @@
 {#if $isTextAreaVisible}
   <textarea
     style="font-family: {$font}; color: {$color}; font-size: {$size}px;"
-    class="resize-y p-4 rounded"
+    class="resize-y p-4 rounded focus:outline-none focus:shadow-outline"
     in:fly={{ y: 200, duration: 1000 }}
     out:fade
     bind:value={$text}

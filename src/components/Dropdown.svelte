@@ -13,16 +13,30 @@
     }
   };
 
+  const styleTitle = (): string => {
+    switch (title) {
+      case 'Color':
+        return `color:${COLORS[$color]}`;
+      case 'Font':
+        return `font-family:'${FONTS[$font]}'`;
+    }
+  };
+
+  let titleStyle = styleTitle();
+
   const selectOption = (event) => {
     const value = event.target.textContent.trim();
     localStorage.setItem(title.toLocaleLowerCase(), value);
 
     switch (title) {
       case 'Color':
-        return color.set(value);
+        color.set(value);
+        break;
       case 'Font':
-        return font.set(value);
+        font.set(value);
+        break;
     }
+    titleStyle = styleTitle();
   };
 </script>
 
@@ -49,7 +63,7 @@
   <button
     class="bg-gray-300 text-gray-700 font-semibold py-2 px-4 rounded inline-flex
       items-center">
-    <span class="mr-1">{title}</span>
+    <span class="mr-1" style={titleStyle}>{title}</span>
   </button>
   <ul class="dropdown-menu absolute hidden text-gray-700 pt-1">
     {#each options as opt}
