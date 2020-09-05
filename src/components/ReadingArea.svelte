@@ -1,6 +1,6 @@
 <script>
   import { fade, fly } from 'svelte/transition';
-  import { isReadingAreaVisible, text, font, color, size } from '../stores';
+  import { isReadingAreaVisible } from '../stores';
   import ScrollText from './ScrollText.svelte';
 </script>
 
@@ -14,8 +14,8 @@
     position: absolute; /* Sit on top of the page content */
     display: block; /* Hidden by default */
     width: 100%; /* Full width (cover the whole page) */
-    height: 100%; /* Full height (cover the whole page) */
-    top: 0;
+    height: 85%; /* Full height (cover the whole page) */
+    top: 15%;
     left: 0;
     right: 0;
     bottom: 0;
@@ -31,8 +31,6 @@
     in:fly={{ y: 200, duration: 1000, delay: 500 }}
     out:fade>
     <div class="overlay rounded" />
-    <p style="font-family: {$font}; color: {$color}; font-size: {$size}px;">
-      <ScrollText />
-    </p>
+    <ScrollText />
   </section>
 {/if}

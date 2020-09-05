@@ -1,5 +1,35 @@
 <script>
-  import { text } from '../stores';
+  import { onMount } from 'svelte';
+
+  import { text, font, color, size } from '../stores';
+
+  function whichAnimationEvent() {
+    var t,
+      el = document.createElement('fakeelement');
+
+    var animations = {
+      animation: 'animationend',
+      OAnimation: 'oAnimationEnd',
+      MozAnimation: 'animationend',
+      WebkitAnimation: 'webkitAnimationEnd',
+    };
+
+    for (t in animations) {
+      if (el.style[t] !== undefined) {
+        return animations[t];
+      }
+    }
+  }
+
+  const animationEvent = whichAnimationEvent();
+
+  onMount(() => {
+    let p = document.querySelector('.scroll-up p');
+    const doneFunction = () => {
+      alert('DOOONNNE');
+    };
+    p.addEventListener(animationEvent, doneFunction);
+  });
 </script>
 
 <style style="text/css">
@@ -22,7 +52,7 @@
     /* Apply animation to this element */
     -moz-animation: scroll-up 5s linear;
     -webkit-animation: scroll-up 5s linear;
-    animation: scroll-up 5s linear;
+    animation: scroll-up 3s linear;
   }
   /* Move it (define the animation) */
   @-moz-keyframes scroll-up {
@@ -45,16 +75,18 @@
     0% {
       -moz-transform: translateY(100%); /* Browser bug fix */
       -webkit-transform: translateY(100%); /* Browser bug fix */
-      transform: translateY(100%);
+      transform: translateY(30%);
     }
     100% {
       -moz-transform: translateY(-100%); /* Browser bug fix */
       -webkit-transform: translateY(-100%); /* Browser bug fix */
-      transform: translateY(-100%);
+      transform: translateY(-500%);
     }
   }
 </style>
 
 <div class="scroll-up">
-  <p>{$text}</p>
+  <p style="font-family: {$font}; color: {$color}; font-size: {$size}px;">
+    {$text}
+  </p>
 </div>
