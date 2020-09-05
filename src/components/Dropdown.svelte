@@ -9,7 +9,7 @@
       case 'Color':
         return `color:${COLORS[attr]}`;
       case 'Font':
-        return `font-family:'${FONTS[attr]}'`;
+        return `font-family:${FONTS[attr]}`;
     }
   };
 
@@ -18,7 +18,7 @@
       case 'Color':
         return `color:${COLORS[$color]}`;
       case 'Font':
-        return `font-family:'${FONTS[$font]}'`;
+        return `font-family:${FONTS[$font]}`;
     }
   };
 
