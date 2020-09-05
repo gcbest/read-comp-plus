@@ -1,13 +1,25 @@
 <script lang="ts">
+  import { COLORS } from '../enums';
+  import { color, font } from '../stores';
   export let title: string;
   export let options: string[];
 
   const showStyle = (attr: string): string => {
     switch (title) {
       case 'Color':
-        return `color:${attr}`;
+        return `color:${COLORS[attr]}`;
       case 'Font':
         return `font-family:'${attr}'`;
+    }
+  };
+
+  const selectOption = (event) => {
+    const value = event.target.textContent;
+    switch (title) {
+      case 'Color':
+        color.set(value);
+      case 'Font':
+        font.set(value);
     }
   };
 </script>
@@ -39,7 +51,10 @@
   </button>
   <ul class="dropdown-menu absolute hidden text-gray-700 pt-1">
     {#each options as opt}
-      <li class="border-solid cursor-pointer opts" style={showStyle(opt)}>
+      <li
+        class="border-solid cursor-pointer opts"
+        on:click={selectOption}
+        style={showStyle(opt)}>
         {opt}
       </li>
     {/each}

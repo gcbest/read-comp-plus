@@ -7,4 +7,5 @@ export const open: Writable<boolean> = writable(false);
 export const { body }: { body: HTMLElement } = window.document;
 export const theme: string | undefined = localStorage.getItem('theme');
 export const wpm: Writable<number> = writable(250);
-export const font: Writable<string> = writable('arial');
+export const font: Writable<string> = writable('Arial');
+export const color: Writable<string> = writable('black');
