@@ -15,6 +15,8 @@
 
   const selectOption = (event) => {
     const value = event.target.textContent.trim();
+    localStorage.setItem(title.toLocaleLowerCase(), value);
+
     switch (title) {
       case 'Color':
         return color.set(value);

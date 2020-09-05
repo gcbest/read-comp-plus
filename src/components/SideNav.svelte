@@ -4,41 +4,17 @@
   import ToggleDarkMode from './ToggleDarkMode.svelte';
   import { open, wpm, font, size } from '../stores';
   import { COLORS, FONTS } from '../const';
-
-  const closeNav = () => open.set(false);
+  import { clickOutside } from '../utils';
 
   const fontOptions = [...Object.keys(FONTS)];
   const colorOptions = [...Object.keys(COLORS)];
 
-  function clickOutside(node, { enabled: initialEnabled, cb }) {
-    const handleOutsideClick = ({ target }) => {
-      if (
-        !node.contains(target) &&
-        target !== document.querySelector('.settings') &&
-        target !== document.querySelector('#settings-icon') &&
-        !target.classList.contains('toggle-dark-icon') &&
-        !target.classList.contains('toggle-dark-btn')
-      ) {
-        cb();
-      }
-    };
+  const closeNav = () => open.set(false);
 
-    function update({ enabled }) {
-      if (enabled) {
-        window.addEventListener('click', handleOutsideClick);
-      } else {
-        window.removeEventListener('click', handleOutsideClick);
-      }
-    }
-
-    update({ enabled: initialEnabled });
-    return {
-      update,
-      destroy() {
-        window.removeEventListener('click', handleOutsideClick);
-      },
-    };
-  }
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    localStorage.setItem(name, value);
+  };
 </script>
 
 <style>
@@ -142,21 +118,25 @@
           <label class="text-gray-300 font-semibold" for="wpm">Words Per Minute</label>
           <input
             id="wpm"
+            name="wpm"
             class="input focus:outline-none focus:shadow-outline"
             type="text"
             pattern="\d"
             maxlength="4"
-            value={$wpm}
+            on:change={handleChange}
+            bind:value={$wpm}
             placeholder="e.g. 200 wpm" />
         </li>
         <li>
           <label class="text-gray-300 font-semibold" for="font-size">Font Size</label>
           <input
             id="font-size"
+            name="font-size"
             class="input focus:outline-none focus:shadow-outline"
             type="text"
             pattern="\d"
             maxlength="2"
+            on:change={handleChange}
             bind:value={$size}
             placeholder="e.g. 16" />
         </li>
