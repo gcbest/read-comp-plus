@@ -1,6 +1,6 @@
 <script lang="ts">
   import { fade, fly } from 'svelte/transition';
-  import { isTextAreaVisible, font, color } from '../stores';
+  import { isTextAreaVisible, font, color, size } from '../stores';
 
   let text: string;
   const placeholder: string =
@@ -13,7 +13,7 @@
     margin: auto;
     display: block;
     background-color: #f5f5f5;
-    color: red;
+    max-height: 60vh;
   }
 
   :global(body.dark-mode) textarea {
@@ -24,10 +24,10 @@
 
 {#if $isTextAreaVisible}
   <textarea
-    style="font-family: {$font}; color: {$color}"
+    style="font-family: {$font}; color: {$color}; font-size: {$size}px;"
     in:fly={{ y: 200, duration: 1000 }}
     out:fade
-    class="resize-y text-red-500 p-4 rounded"
+    class="resize-y p-4 rounded"
     name="content"
     cols="30"
     rows="10">

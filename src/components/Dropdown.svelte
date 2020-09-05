@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { COLORS } from '../enums';
+  import { COLORS, FONTS } from '../const';
   import { color, font } from '../stores';
   export let title: string;
   export let options: string[];
@@ -9,17 +9,17 @@
       case 'Color':
         return `color:${COLORS[attr]}`;
       case 'Font':
-        return `font-family:'${attr}'`;
+        return `font-family:'${FONTS[attr]}'`;
     }
   };
 
   const selectOption = (event) => {
-    const value = event.target.textContent;
+    const value = event.target.textContent.trim();
     switch (title) {
       case 'Color':
-        color.set(value);
+        return color.set(value);
       case 'Font':
-        font.set(value);
+        return font.set(value);
     }
   };
 </script>

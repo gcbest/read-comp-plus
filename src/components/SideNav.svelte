@@ -3,11 +3,12 @@
   import Dropdown from './Dropdown.svelte';
   import ToggleDarkMode from './ToggleDarkMode.svelte';
   import { open, wpm, font, size } from '../stores';
+  import { COLORS, FONTS } from '../const';
 
   const closeNav = () => open.set(false);
 
-  const fontOptions = ['Helvetica', 'Arial', 'Times New Roman', 'sans-serif'];
-  const colorOptions = ['red', 'blue', 'green', 'black'];
+  const fontOptions = [...Object.keys(FONTS)];
+  const colorOptions = [...Object.keys(COLORS)];
 
   function clickOutside(node, { enabled: initialEnabled, cb }) {
     const handleOutsideClick = ({ target }) => {
@@ -142,20 +143,22 @@
           <input
             id="wpm"
             class="input focus:outline-none focus:shadow-outline"
-            type="number"
-            min="0"
+            type="text"
+            pattern="\d"
+            maxlength="4"
             value={$wpm}
-            placeholder="200 wpm" />
+            placeholder="e.g. 200 wpm" />
         </li>
         <li>
           <label class="text-gray-300 font-semibold" for="font-size">Font Size</label>
           <input
             id="font-size"
             class="input focus:outline-none focus:shadow-outline"
-            type="number"
-            min="8"
-            value={$size}
-            placeholder="16px" />
+            type="text"
+            pattern="\d"
+            maxlength="2"
+            bind:value={$size}
+            placeholder="e.g. 16" />
         </li>
         <li class="flex justify-between">
           <Dropdown title="Font" options={fontOptions} />
