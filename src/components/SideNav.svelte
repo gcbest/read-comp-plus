@@ -2,7 +2,7 @@
   import { fly } from 'svelte/transition';
   import Dropdown from './Dropdown.svelte';
   import ToggleDarkMode from './ToggleDarkMode.svelte';
-  import { open, wpm, font } from '../stores';
+  import { open, wpm, font, size } from '../stores';
 
   const closeNav = () => open.set(false);
 
@@ -84,7 +84,7 @@
     display: block;
   }
 
-  .wpm-input {
+  .input {
     @apply bg-white border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal;
   }
 
@@ -141,11 +141,21 @@
           <label class="text-gray-300 font-semibold" for="wpm">Words Per Minute</label>
           <input
             id="wpm"
-            class="wpm-input focus:outline-none focus:shadow-outline"
+            class="input focus:outline-none focus:shadow-outline"
             type="number"
             min="0"
             value={$wpm}
             placeholder="200 wpm" />
+        </li>
+        <li>
+          <label class="text-gray-300 font-semibold" for="font-size">Font Size</label>
+          <input
+            id="font-size"
+            class="input focus:outline-none focus:shadow-outline"
+            type="number"
+            min="8"
+            value={$size}
+            placeholder="16px" />
         </li>
         <li class="flex justify-between">
           <Dropdown title="Font" options={fontOptions} />

@@ -9,3 +9,4 @@ export const theme: string | undefined = localStorage.getItem('theme');
 export const wpm: Writable<number> = writable(250);
 export const font: Writable<string> = writable('Arial');
 export const color: Writable<string> = writable('black');
+export const size: Writable<number> = writable(16);

@@ -3,7 +3,7 @@
   import { isTextAreaVisible } from '../stores';
 
   const handleClick = () => {
-    isTextAreaVisible.set(!isTextAreaVisible);
+    isTextAreaVisible.set(!$isTextAreaVisible);
   };
 </script>
 
