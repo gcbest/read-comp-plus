@@ -1,10 +1,24 @@
 <script lang="ts">
   import { fade, fly } from 'svelte/transition';
-  import { isTextAreaVisible, font, color, size } from '../stores';
+  import {
+    isTextAreaVisible,
+    isOptionsAreaVisible,
+    isReadingAreaVisible,
+    font,
+    color,
+    size,
+    text,
+  } from '../stores';
+  import Button from './Button.svelte';
 
-  let text: string;
   const placeholder: string =
     'To get started, just copy and paste text that you would like to read in this text box.';
+
+  const handleClick = () => {
+    isTextAreaVisible.set(false);
+    isOptionsAreaVisible.set(false);
+    isReadingAreaVisible.set(true);
+  };
 </script>
 
 <style>
@@ -16,21 +30,28 @@
     max-height: 60vh;
   }
 
+  div {
+    text-align: center;
+  }
+
   :global(body.dark-mode) textarea {
     background-color: #457b9d;
-    color: #f1faee;
+    /* color: #f1faee; */
   }
 </style>
 
 {#if $isTextAreaVisible}
   <textarea
     style="font-family: {$font}; color: {$color}; font-size: {$size}px;"
+    class="resize-y p-4 rounded"
     in:fly={{ y: 200, duration: 1000 }}
     out:fade
-    class="resize-y p-4 rounded"
+    bind:value={$text}
+    {placeholder}
     name="content"
     cols="30"
-    rows="10">
-    {text ? text : placeholder}
-  </textarea>
+    rows="10" />
+  <div class="pt-5" in:fly={{ y: 200, duration: 1000 }} out:fade>
+    <Button {handleClick} green={true}>Begin</Button>
+  </div>
 {/if}
