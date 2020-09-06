@@ -7,11 +7,17 @@
   .input {
     @apply bg-white border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal;
   }
+
+  @media screen and (min-width: 500px) {
+    section {
+      max-width: 50vw;
+    }
+  }
 </style>
 
 {#if $isReviewAreaVisible}
   <section
-    class="flex flex-col justify-evenly align-middle mt-8"
+    class="flex flex-col justify-evenly align-middle mt-8 mx-auto"
     in:fly={{ y: 200, duration: 1000, delay: 500 }}
     out:fade={{ duration: 500 }}>
     <label for="title" />

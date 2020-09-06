@@ -45,11 +45,9 @@
 </style>
 
 <nav class="relative">
-  <a href="/">
-    <header id="myHeader" class="text-blue-500 text-2xl text-center m-auto">
-      Read Comp+
-    </header>
-  </a>
+  <header id="myHeader" class="text-blue-500 text-2xl text-center m-auto">
+    <a href="/"> Read Comp+ </a>
+  </header>
   <ul>
     <li class="darkModeBtn">
       <ToggleDarkMode />
