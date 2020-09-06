@@ -1,6 +1,7 @@
 <script>
   import { fade, fly } from 'svelte/transition';
   import { isReviewAreaVisible, reviewResponses } from '../stores';
+  import ResponseBox from './ResponseBox.svelte';
 </script>
 
 <style>
@@ -28,13 +29,9 @@
       placeholder="What is the title of the reading?"
       bind:value={$reviewResponses.title} />
     <label for="main-takeaway" />
-    <textarea
+    <ResponseBox
       name="main-takeaway"
-      class="focus:outline-none focus:shadow-outline my-4 p-4 rounded"
-      id=""
-      cols="30"
-      rows="10"
-      placeholder="What is the main takeaway from this reading?"
-      bind:value={$reviewResponses.mainTakeAway} />
+      value={$reviewResponses.mainTakeAway}
+      placeholder="What is the main takeaway from this reading?" />
   </section>
 {/if}
