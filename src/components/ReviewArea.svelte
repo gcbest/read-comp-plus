@@ -1,4 +1,5 @@
 <script>
+  import { fade, fly } from 'svelte/transition';
   import { isReviewAreaVisible, reviewResponses } from '../stores';
 </script>
 
@@ -9,7 +10,10 @@
 </style>
 
 {#if $isReviewAreaVisible}
-  <section class="flex flex-col justify-evenly align-middle mt-8">
+  <section
+    class="flex flex-col justify-evenly align-middle mt-8"
+    in:fly={{ y: 200, duration: 1000, delay: 500 }}
+    out:fade={{ duration: 500 }}>
     <label for="title" />
     <input
       name="title"
@@ -20,7 +24,7 @@
     <label for="main-takeaway" />
     <textarea
       name="main-takeaway"
-      class="focus:outline-none focus:shadow-outline mt-4 p-4 rounded"
+      class="focus:outline-none focus:shadow-outline my-4 p-4 rounded"
       id=""
       cols="30"
       rows="10"

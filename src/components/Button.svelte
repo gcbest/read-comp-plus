@@ -23,6 +23,10 @@
   }
 </style>
 
-<button class="btn" class:green class:blue on:click={handleClick}>
+<button
+  class="btn focus:outline-none focus:shadow-outline"
+  class:green
+  class:blue
+  on:click={handleClick}>
   <slot />
 </button>

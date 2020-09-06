@@ -36,6 +36,7 @@
     -moz-animation: scroll-up 5s linear;
     -webkit-animation: scroll-up 5s linear;
     animation: scroll-up 3s linear;
+    animation-delay: 3000ms;
   }
   /* Move it (define the animation) */
   @-moz-keyframes scroll-up {

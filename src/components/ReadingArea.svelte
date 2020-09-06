@@ -10,9 +10,10 @@
 
   const reRead = () => {
     isReadingAreaVisible.set(false);
+    isReadingDoneAreaVisible.set(false);
     setTimeout(() => {
       isReadingAreaVisible.set(true);
-    }, 1000);
+    }, 600);
   };
 
   const review = () => {
@@ -43,11 +44,10 @@
 </style>
 
 {#if $isReadingAreaVisible}
-  <section
-    class="relative"
-    in:fly={{ y: 200, duration: 1000, delay: 500 }}
-    out:fade={{ duration: 500 }}>
-    <div class="overlay rounded" />
+  <section class="relative" out:fade={{ duration: 500 }}>
+    <div
+      class="overlay rounded"
+      in:fly={{ y: 200, duration: 2000, delay: 1000 }} />
     <ScrollText />
     {#if $isReadingDoneAreaVisible}
       <div class="flex justify-evenly mt-8">
