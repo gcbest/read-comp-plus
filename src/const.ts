@@ -10,3 +10,15 @@ export const FONTS = {
         'Comic Neue': '"Comic Neue", cursive',
         'Courier New': '"Courier New", Courier, monospace',
 };
+
+export type REVIEW_RESPONSES = {
+        title: string;
+        mainTakeAway: string;
+        example: string;
+};
+
+export const DEFAULT_RESPONSES: REVIEW_RESPONSES = {
+        title: '',
+        mainTakeAway: '',
+        example: '',
+};

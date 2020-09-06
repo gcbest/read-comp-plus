@@ -51,7 +51,9 @@
     name="content"
     cols="30"
     rows="10" />
-  <div class="pt-5" in:fly={{ y: 200, duration: 1000 }} out:fade>
-    <Button {handleClick} green={true}>Begin</Button>
-  </div>
+  {#if $text.length > 0}
+    <div class="pt-5" in:fly={{ y: 200, duration: 1000 }} out:fade>
+      <Button {handleClick} green={true}>Begin</Button>
+    </div>
+  {/if}
 {/if}
