@@ -1,3 +1,14 @@
+import {
+        isTextAreaVisible,
+        isOptionsAreaVisible,
+        isReadingAreaVisible,
+        isReviewAreaVisible,
+        isReadingDoneAreaVisible,
+        isSummaryAreaVisible,
+        text,
+        reviewResponses,
+} from './stores';
+
 export const clickOutside = (node, { enabled: initialEnabled, cb }) => {
         const handleOutsideClick = ({ target }) => {
                 if (
@@ -45,4 +56,20 @@ export const whichAnimationEvent = () => {
                         return animations[t];
                 }
         }
+};
+
+export const reset = () => {
+        text.set('');
+        reviewResponses.set({
+                title: '',
+                mainTakeAway: '',
+                useCase: '',
+        });
+
+        isTextAreaVisible.set(false);
+        isOptionsAreaVisible.set(true);
+        isReadingAreaVisible.set(false);
+        isReviewAreaVisible.set(false);
+        isReadingDoneAreaVisible.set(false);
+        isSummaryAreaVisible.set(false);
 };

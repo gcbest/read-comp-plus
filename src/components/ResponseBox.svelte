@@ -6,9 +6,9 @@
 
 <textarea
   {name}
-  class="focus:outline-none focus:shadow-outline my-4 p-4 rounded"
+  class="focus:outline-none focus:shadow-outline my-2 p-4 rounded"
   id=""
   cols="30"
-  rows="10"
+  rows="8"
   {placeholder}
   bind:value />

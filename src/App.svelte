@@ -6,6 +6,7 @@
   import SideNav from './components/SideNav.svelte';
   import ReadingArea from './components/ReadingArea.svelte';
   import ReviewArea from './components/ReviewArea.svelte';
+  import SummaryArea from './components/SummaryArea.svelte';
   import { darkMode, theme, body } from './stores';
 
   if (theme) {
@@ -42,4 +43,5 @@
   <TextArea />
   <ReadingArea />
   <ReviewArea />
+  <SummaryArea />
 </main>

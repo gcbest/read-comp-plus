@@ -14,11 +14,11 @@ export const FONTS = {
 export type REVIEW_RESPONSES = {
         title: string;
         mainTakeAway: string;
-        example: string;
+        useCase: string;
 };
 
 export const DEFAULT_RESPONSES: REVIEW_RESPONSES = {
         title: '',
         mainTakeAway: '',
-        example: '',
+        useCase: '',
 };
