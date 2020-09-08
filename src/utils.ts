@@ -73,3 +73,30 @@ export const reset = () => {
         isReadingDoneAreaVisible.set(false);
         isSummaryAreaVisible.set(false);
 };
+
+export const calculateScrollSpeed = (wpm: number, textLength: number): { time: string; percentY: string } => {
+        // const avgWordsPerLine = 10;
+
+        // const linesPerMinute = wpm / avgWordsPerLine;
+
+        // const numSeconds = Math.floor(linesPerMinute / 60);
+        // const numSeconds = Math.floor(wpm / 60);
+
+        const wordsPerSecond = 60 / wpm;
+        const numAbove60 = Math.floor(textLength % 60);
+        let numSeconds = wordsPerSecond * 60;
+        numSeconds += Math.floor(numAbove60 / 10);
+
+        let percentY = '-100%';
+        if (textLength > 400) {
+                percentY = '-150%';
+        }
+        if (textLength < 300) {
+                percentY = '-50%';
+        }
+        // const secondsPerWord = Math.floor()
+        // const numSeconds = wordsPerSecond / 60;
+        // console.log(numSeconds);
+
+        return { time: `${numSeconds}s`, percentY };
+};
