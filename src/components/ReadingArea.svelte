@@ -47,7 +47,7 @@
   <section class="relative" out:fade={{ duration: 500 }}>
     <div
       class="overlay rounded"
-      in:fly={{ y: 200, duration: 2000, delay: 1000 }} />
+      in:fly={{ y: 200, duration: 750, delay: 750 }} />
     <ScrollText />
     {#if $isReadingDoneAreaVisible}
       <div class="flex justify-evenly mt-8">

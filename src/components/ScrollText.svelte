@@ -9,9 +9,15 @@
     wpm,
     isReadingDoneAreaVisible,
   } from '../stores';
-  import { whichAnimationEvent, calculateScrollSpeed } from '../utils';
+  import {
+    whichAnimationEvent,
+    calculateScrollSpeed,
+    stripPixels,
+  } from '../utils';
 
-  const { time, percentY } = calculateScrollSpeed(parseInt($wpm), $text.length);
+  const numWords = $text.trim().split(' ').length;
+  const { time } = calculateScrollSpeed($wpm, numWords);
+  let pixelsY;
 
   const animationEvent = whichAnimationEvent();
 
@@ -22,6 +28,9 @@
     };
 
     textP.addEventListener(animationEvent, doneNextSteps);
+
+    const pHeight = window.getComputedStyle(textP).height;
+    pixelsY = `-${pHeight}`;
   });
 
   function spin(node, { duration }) {
@@ -52,18 +61,19 @@
     position: absolute;
     width: 100%;
     height: fit-content;
+    /* overflow-y: scroll; */
     margin: 0;
     line-height: 50px;
     text-align: center;
     /* Starting position */
-    -moz-transform: translateY(100%);
-    -webkit-transform: translateY(100%);
-    transform: translateY(100%);
+    -moz-transform: translateY(30%);
+    -webkit-transform: translateY(30%);
+    transform: translateY(30%);
     /* Apply animation to this element */
     -moz-animation: scroll-up 5s linear;
     -webkit-animation: scroll-up 5s linear;
     animation: scroll-up var(--time) linear;
-    animation-delay: 3000ms;
+    animation-delay: 1500ms;
   }
   /* Move it (define the animation) */
   @-moz-keyframes scroll-up {
@@ -84,20 +94,19 @@
   }
   @keyframes scroll-up {
     0% {
-      -moz-transform: translateY(100%); /* Browser bug fix */
-      -webkit-transform: translateY(100%); /* Browser bug fix */
+      -moz-transform: translateY(30%); /* Browser bug fix */
+      -webkit-transform: translateY(30%); /* Browser bug fix */
       transform: translateY(30%);
     }
     100% {
-      -moz-transform: translateY(-100%); /* Browser bug fix */
-      -webkit-transform: translateY(-100%); /* Browser bug fix */
-      /* transform: translateY(-150%); */
-      transform: translateY(var(--percentY));
+      -moz-transform: translateY(var(--pixelsY)); /* Browser bug fix */
+      -webkit-transform: translateY(var(--pixelsY)); /* Browser bug fix */
+      transform: translateY(var(--pixelsY));
     }
   }
 </style>
 
-<div class="scroll-up" style="--time: {time}; --percentY: {percentY}">
+<div class="scroll-up" style="--time: {time}; --pixelsY: {pixelsY}">
   <p style="font-family: {$font}; color: {$color}; font-size: {$size}px;">
     {$text}
   </p>
