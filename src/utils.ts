@@ -74,50 +74,10 @@ export const reset = () => {
         isSummaryAreaVisible.set(false);
 };
 
-export const calculateScrollSpeed = (
-        wpm: number,
-        numWords: number
-        // lineHeight: number
-): { time: string } => {
-        // const avgWordsPerLine = 10;
-
-        // const linesPerMinute = wpm / avgWordsPerLine;
-
-        // const numSeconds = Math.floor(linesPerMinute / 60);
-        // const numSeconds = Math.floor(wpm / 60);
-
-        // const wordsPerSecond = 60 / wpm;
-        // const numAbove60 = Math.floor(textLength % 60);
-        // let numSeconds = wordsPerSecond * 60;
-        // numSeconds += Math.floor(numAbove60 / 10);
-
-        // let percentY = '-100%';
-        // if (textLength > 400) {
-        //         percentY = '-150%';
-        // }
-        // if (textLength < 300) {
-        //         percentY = '-50%';
-        // }
-        // // const secondsPerWord = Math.floor()
-        // // const numSeconds = wordsPerSecond / 60;
-        // // console.log(numSeconds);
-
-        // return { time: `${numSeconds}s`, percentY };
-
-        // const numLines = textHeight / lineHeight;
+export const calculateScrollSpeed = (wpm: number, numWords: number): string => {
         const numMinutes = numWords / wpm;
         const numSeconds = Math.floor(numMinutes * 60);
-
-        // get total num of words = 60
-        // wpm = 60
-        // total num words / wpm * 60 = numseconds
-
-        // console.log(numLines);
         console.log(numWords);
-
-        // if (numSeconds > 120) numSeconds /= 2;
         console.log(numSeconds);
-        return { time: `${numSeconds}s` };
+        return `${numSeconds}s`;
 };
-
-export const stripPixels = (size: string): number => parseInt(size.slice(0, -2));

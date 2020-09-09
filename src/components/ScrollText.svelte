@@ -9,46 +9,24 @@
     wpm,
     isReadingDoneAreaVisible,
   } from '../stores';
-  import {
-    whichAnimationEvent,
-    calculateScrollSpeed,
-    stripPixels,
-  } from '../utils';
+  import { whichAnimationEvent, calculateScrollSpeed } from '../utils';
 
   const numWords = $text.trim().split(' ').length;
-  const { time } = calculateScrollSpeed($wpm, numWords);
+  const time = calculateScrollSpeed($wpm, numWords);
   let pixelsY;
 
   const animationEvent = whichAnimationEvent();
 
   onMount(() => {
     const textP = document.querySelector('.scroll-up p');
-    const doneNextSteps = () => {
-      isReadingDoneAreaVisible.set(true);
-    };
+
+    const doneNextSteps = () => isReadingDoneAreaVisible.set(true);
 
     textP.addEventListener(animationEvent, doneNextSteps);
 
     const pHeight = window.getComputedStyle(textP).height;
     pixelsY = `-${pHeight}`;
   });
-
-  function spin(node, { duration }) {
-    return {
-      duration,
-      css: (t) => {
-        const eased = elasticOut(t);
-
-        return `
-					transform: scale(${eased}) rotate(${eased * 1080}deg);
-					color: hsl(
-						${~~(t * 360)},
-						${Math.min(100, 1000 - 1000 * t)}%,
-						${Math.min(50, 500 - 500 * t)}%
-					);`;
-      },
-    };
-  }
 </script>
 
 <style>
@@ -61,42 +39,41 @@
     position: absolute;
     width: 100%;
     height: fit-content;
-    /* overflow-y: scroll; */
     margin: 0;
     line-height: 50px;
     text-align: center;
     /* Starting position */
-    -moz-transform: translateY(30%);
-    -webkit-transform: translateY(30%);
-    transform: translateY(30%);
+    -moz-transform: translateY(1%);
+    -webkit-transform: translateY(1%);
+    transform: translateY(1%);
     /* Apply animation to this element */
-    -moz-animation: scroll-up 5s linear;
-    -webkit-animation: scroll-up 5s linear;
+    -moz-animation: scroll-up var(--time) linear;
+    -webkit-animation: scroll-up var(--time) linear;
     animation: scroll-up var(--time) linear;
-    animation-delay: 1500ms;
+    animation-delay: 3000ms;
   }
-  /* Move it (define the animation) */
+
   @-moz-keyframes scroll-up {
     0% {
-      -moz-transform: translateY(100%);
+      -moz-transform: translateY(1%);
     }
     100% {
-      -moz-transform: translateY(-100%);
+      -moz-transform: translateY(var(--pixelsY));
     }
   }
   @-webkit-keyframes scroll-up {
     0% {
-      -webkit-transform: translateY(100%);
+      -webkit-transform: translateY(1%);
     }
     100% {
-      -webkit-transform: translateY(-100%);
+      -webkit-transform: translateY(var(--pixelsY));
     }
   }
   @keyframes scroll-up {
     0% {
-      -moz-transform: translateY(30%); /* Browser bug fix */
-      -webkit-transform: translateY(30%); /* Browser bug fix */
-      transform: translateY(30%);
+      -moz-transform: translateY(1%); /* Browser bug fix */
+      -webkit-transform: translateY(1%); /* Browser bug fix */
+      transform: translateY(1%);
     }
     100% {
       -moz-transform: translateY(var(--pixelsY)); /* Browser bug fix */
