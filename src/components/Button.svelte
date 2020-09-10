@@ -2,6 +2,7 @@
   export let green: boolean = false;
   export let blue: boolean = false;
   export let yellow: boolean = false;
+  export let purple: boolean = false;
   export let handleClick: () => void;
 </script>
 
@@ -30,6 +31,13 @@
   .yellow:hover {
     @apply bg-yellow-700;
   }
+
+  .purple {
+    @apply bg-purple-500 text-white;
+  }
+  .purple:hover {
+    @apply bg-purple-700;
+  }
 </style>
 
 <button
@@ -37,6 +45,7 @@
   class:green
   class:blue
   class:yellow
+  class:purple
   on:click={handleClick}>
   <slot />
 </button>
