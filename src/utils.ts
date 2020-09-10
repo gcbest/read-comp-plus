@@ -7,6 +7,7 @@ import {
         isSummaryAreaVisible,
         text,
         reviewResponses,
+        animationTime,
 } from './stores';
 
 export const clickOutside = (node, { enabled: initialEnabled, cb }) => {
@@ -82,4 +83,11 @@ export const calculateScrollSpeed = (wpm: number, numWords: number): string => {
         return `${numSeconds}s`;
 };
 
-export const togglePause = (currentState: string): string => (currentState === 'paused' ? 'running' : 'paused');
+export const togglePause = (currentState: string) => (currentState === 'paused' ? 'running' : 'paused');
+
+export const updateTime = (wpm: string, textContent: string) => {
+        const numWords = textContent.trim().split(' ').length;
+        localStorage.setItem('wpm', wpm); // update wpm in localStorage
+        const newTime = calculateScrollSpeed(parseInt(wpm), numWords);
+        animationTime.set(newTime);
+};

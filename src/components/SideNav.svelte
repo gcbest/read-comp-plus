@@ -2,9 +2,9 @@
   import { fly } from 'svelte/transition';
   import Dropdown from './Dropdown.svelte';
   import ToggleDarkMode from './ToggleDarkMode.svelte';
-  import { open, wpm, font, size } from '../stores';
+  import { open, wpm, font, size, animationTime, text } from '../stores';
   import { COLORS, FONTS } from '../const';
-  import { clickOutside } from '../utils';
+  import { clickOutside, calculateScrollSpeed, updateTime } from '../utils';
 
   const fontOptions = [...Object.keys(FONTS)];
   const colorOptions = [...Object.keys(COLORS)];
@@ -14,6 +14,10 @@
   const handleChange = (event) => {
     const { name, value } = event.target;
     localStorage.setItem(name, value);
+
+    if (name === 'wpm') {
+      updateTime($wpm, $text);
+    }
   };
 </script>
 

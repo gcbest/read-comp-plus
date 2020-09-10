@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { onMount } from 'svelte';
 
   import {
@@ -10,7 +10,7 @@
     isReadingDoneAreaVisible,
   } from '../stores';
   import { whichAnimationEvent } from '../utils';
-  export let time;
+  export let time: string;
   let pixelsY;
 
   const animationEvent = whichAnimationEvent();
