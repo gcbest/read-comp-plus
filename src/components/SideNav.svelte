@@ -13,11 +13,8 @@
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    localStorage.setItem(name, value);
-
-    if (name === 'wpm') {
-      updateTime($wpm, $text);
-    }
+    if (name === 'wpm') updateTime($wpm, $text);
+    else localStorage.setItem(name, value); // since it will be set for wpm in updateTime fn
   };
 </script>
 

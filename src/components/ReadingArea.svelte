@@ -13,14 +13,8 @@
   import { togglePause, updateTime } from '../utils';
   import { onMount } from 'svelte';
 
-  // const numWords = $text.trim().split(' ').length;
-  // let time = calculateScrollSpeed($wpm, numWords);
   let isSpeedVisible = false;
-
-  // const getTime = () => {
-  //   localStorage.setItem('wpm', $wpm); // update wpm in localstorage
-  //   time = calculateScrollSpeed($wpm, numWords);
-  // };
+  let pauseBtnText = 'Pause';
 
   updateTime($wpm, $text);
 
@@ -28,16 +22,17 @@
 
   const pause = () => {
     const textP: any = document.querySelector('.scroll-up p');
-    const pauseBtn = document.querySelector('.yellow');
     const { animationPlayState: currentPlayState } = textP.style;
     textP.style.animationPlayState = togglePause(currentPlayState); // updated play state
-    pauseBtn.textContent =
+
+    pauseBtnText =
       textP.style.animationPlayState === 'paused' ? 'Resume' : 'Pause';
   };
 
   const reRead = () => {
     isReadingAreaVisible.set(false);
     isReadingDoneAreaVisible.set(false);
+    isSpeedVisible = false;
     setTimeout(() => {
       isReadingAreaVisible.set(true);
     }, 600);
@@ -94,7 +89,7 @@
       {:else}
         <Button handleClick={showSpeed} purple={true}>Adjust Speed</Button>
       {/if}
-      <Button handleClick={pause} yellow={true}>Pause</Button>
+      <Button handleClick={pause} yellow={true}>{pauseBtnText}</Button>
     {/if}
   </div>
 </section>
