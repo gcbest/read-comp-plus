@@ -9,10 +9,8 @@
     wpm,
     isReadingDoneAreaVisible,
   } from '../stores';
-  import { whichAnimationEvent, calculateScrollSpeed } from '../utils';
-
-  const numWords = $text.trim().split(' ').length;
-  const time = calculateScrollSpeed($wpm, numWords);
+  import { whichAnimationEvent } from '../utils';
+  export let time;
   let pixelsY;
 
   const animationEvent = whichAnimationEvent();

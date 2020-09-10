@@ -4,10 +4,21 @@
     isReadingAreaVisible,
     isReviewAreaVisible,
     isReadingDoneAreaVisible,
+    wpm,
+    text,
   } from '../stores';
   import ScrollText from './ScrollText.svelte';
   import Button from './Button.svelte';
-  import { togglePause } from '../utils';
+  import { togglePause, calculateScrollSpeed } from '../utils';
+  import { onMount } from 'svelte';
+
+  const numWords = $text.trim().split(' ').length;
+  let time = calculateScrollSpeed($wpm, numWords);
+
+  const getTime = () => {
+    localStorage.setItem('wpm', $wpm); // update wpm in localstorage
+    time = calculateScrollSpeed($wpm, numWords);
+  };
 
   const pause = () => {
     const textP = document.querySelector('.scroll-up p');
@@ -53,20 +64,24 @@
   }
 </style>
 
-{#if $isReadingAreaVisible}
-  <section class="relative" out:fade={{ duration: 500 }}>
-    <div
-      class="overlay rounded"
-      in:fly={{ y: 200, duration: 750, delay: 750 }} />
-    <ScrollText />
+<section class="relative" out:fade={{ duration: 500 }}>
+  <div class="overlay rounded" in:fly={{ y: 200, duration: 750, delay: 750 }} />
+  <ScrollText {time} />
+  <label for="wpm-adjust">Current Speed: {$wpm} WPM</label>
+  <input
+    on:change={getTime}
+    bind:value={$wpm}
+    type="range"
+    name="wpm-adjust"
+    min="10"
+    max="2000" />
 
-    <div class="flex justify-evenly mt-8">
-      {#if $isReadingDoneAreaVisible}
-        <Button handleClick={reRead} green={true}>Re-read</Button>
-        <Button handleClick={review} blue={true}>Done</Button>
-      {:else}
-        <Button handleClick={pause} yellow={true}>Pause</Button>
-      {/if}
-    </div>
-  </section>
-{/if}
+  <div class="flex justify-evenly mt-8">
+    {#if $isReadingDoneAreaVisible}
+      <Button handleClick={reRead} green={true}>Re-read</Button>
+      <Button handleClick={review} blue={true}>Done</Button>
+    {:else}
+      <Button handleClick={pause} yellow={true}>Pause</Button>
+    {/if}
+  </div>
+</section>
