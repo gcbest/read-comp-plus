@@ -7,6 +7,16 @@
   } from '../stores';
   import ScrollText from './ScrollText.svelte';
   import Button from './Button.svelte';
+  import { togglePause } from '../utils';
+
+  const pause = () => {
+    const textP = document.querySelector('.scroll-up p');
+    const pauseBtn = document.querySelector('.yellow');
+    const { animationPlayState: currentPlayState } = textP.style;
+    textP.style.animationPlayState = togglePause(currentPlayState); // updated play state
+    pauseBtn.textContent =
+      textP.style.animationPlayState === 'paused' ? 'Resume' : 'Pause';
+  };
 
   const reRead = () => {
     isReadingAreaVisible.set(false);
@@ -49,11 +59,14 @@
       class="overlay rounded"
       in:fly={{ y: 200, duration: 750, delay: 750 }} />
     <ScrollText />
-    {#if $isReadingDoneAreaVisible}
-      <div class="flex justify-evenly mt-8">
+
+    <div class="flex justify-evenly mt-8">
+      {#if $isReadingDoneAreaVisible}
         <Button handleClick={reRead} green={true}>Re-read</Button>
         <Button handleClick={review} blue={true}>Done</Button>
-      </div>
-    {/if}
+      {:else}
+        <Button handleClick={pause} yellow={true}>Pause</Button>
+      {/if}
+    </div>
   </section>
 {/if}

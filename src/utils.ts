@@ -81,3 +81,5 @@ export const calculateScrollSpeed = (wpm: number, numWords: number): string => {
         console.log(numSeconds);
         return `${numSeconds}s`;
 };
+
+export const togglePause = (currentState: string): string => (currentState === 'paused' ? 'running' : 'paused');
