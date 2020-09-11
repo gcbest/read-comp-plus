@@ -7,6 +7,7 @@
   import ReadingArea from './components/ReadingArea.svelte';
   import ReviewArea from './components/ReviewArea.svelte';
   import SummaryArea from './components/SummaryArea.svelte';
+  import URLInputArea from './components/URLInputArea.svelte';
   import { darkMode, theme, body, isReadingAreaVisible } from './stores';
 
   if (theme) {
@@ -40,6 +41,7 @@
   <Header />
   <SideNav />
   <OptionsArea />
+  <URLInputArea />
   <TextArea />
   {#if $isReadingAreaVisible}
     <ReadingArea />

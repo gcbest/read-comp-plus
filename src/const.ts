@@ -22,3 +22,5 @@ export const DEFAULT_RESPONSES: REVIEW_RESPONSES = {
         mainTakeAway: '',
         useCase: '',
 };
+
+export const CORS_URL = 'https://cors-anywhere.herokuapp.com/';

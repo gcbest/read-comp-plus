@@ -91,3 +91,12 @@ export const updateTime = (wpm: string, textContent: string) => {
         const newTime = calculateScrollSpeed(parseInt(wpm), numWords);
         animationTime.set(newTime);
 };
+
+export const formatHTML = (html: Document): string => {
+        // find all p tags and combine
+        const newTextContent = Array.from(html.querySelectorAll('p'))
+                .map(p => p.textContent.replace(/Advertisement/g, ''))
+                .join(' ');
+        console.log(newTextContent);
+        return newTextContent;
+};

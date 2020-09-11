@@ -2,9 +2,7 @@
   // export let handleClick: () => void;
   import { isTextAreaVisible } from '../stores';
 
-  const handleClick = () => {
-    isTextAreaVisible.set(!$isTextAreaVisible);
-  };
+  export let handleClick;
 </script>
 
 <style>
