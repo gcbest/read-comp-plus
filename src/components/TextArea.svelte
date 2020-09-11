@@ -17,7 +17,7 @@
   const handleClick = () => {
     isOptionsAreaVisible.set(false);
     isTextAreaVisible.set(false);
-    setTimeout(() => isReadingAreaVisible.set(true), 500);
+    isReadingAreaVisible.set(true);
   };
 </script>
 

@@ -67,7 +67,7 @@
 
 <section
   class="relative"
-  in:fly={{ y: 200, duration: 750 }}
+  in:fly={{ y: 200, duration: 750, delay: 500 }}
   out:fade={{ duration: 500 }}>
   <div class="overlay rounded" in:fly={{ y: 200, duration: 750, delay: 750 }} />
   <ScrollText time={$animationTime} />
