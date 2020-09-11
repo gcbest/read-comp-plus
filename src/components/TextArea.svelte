@@ -15,9 +15,9 @@
     'To get started, just copy and paste text that you would like to read in this text box.';
 
   const handleClick = () => {
-    isTextAreaVisible.set(false);
     isOptionsAreaVisible.set(false);
-    isReadingAreaVisible.set(true);
+    isTextAreaVisible.set(false);
+    setTimeout(() => isReadingAreaVisible.set(true), 500);
   };
 </script>
 

@@ -65,7 +65,10 @@
   }
 </style>
 
-<section class="relative" out:fade={{ duration: 500 }}>
+<section
+  class="relative"
+  in:fly={{ y: 200, duration: 750 }}
+  out:fade={{ duration: 500 }}>
   <div class="overlay rounded" in:fly={{ y: 200, duration: 750, delay: 750 }} />
   <ScrollText time={$animationTime} />
 
@@ -78,7 +81,7 @@
         <span class="text-center">
           <label for="wpm-adjust">Current Speed: {$wpm} WPM</label>
           <input
-            class="bg-gray-300 h-8 rounded"
+            class="bg-gray-300 h-8 rounded cursor-pointer"
             on:change={() => updateTime($wpm, $text)}
             bind:value={$wpm}
             type="range"
