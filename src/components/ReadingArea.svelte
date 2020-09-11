@@ -31,9 +31,9 @@
 
   const reRead = () => {
     isReadingAreaVisible.set(false);
-    isReadingDoneAreaVisible.set(false);
-    isSpeedVisible = false;
     setTimeout(() => {
+      isReadingDoneAreaVisible.set(false);
+      isSpeedVisible = false;
       isReadingAreaVisible.set(true);
     }, 600);
   };
