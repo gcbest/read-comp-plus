@@ -7,8 +7,15 @@
   } from '../stores';
   import OptionBtn from './OptionBtn.svelte';
 
-  const handleTextClick = () => isTextAreaVisible.set(true);
-  const handleURLClick = () => isURLAreaVisible.set(true);
+  const handleTextClick = () => {
+    isURLAreaVisible.set(false);
+    isTextAreaVisible.set(true);
+  };
+
+  const handleURLClick = () => {
+    isTextAreaVisible.set(false);
+    setTimeout(() => isURLAreaVisible.set(true), 300);
+  };
 </script>
 
 {#if $isOptionsAreaVisible}

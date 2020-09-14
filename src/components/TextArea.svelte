@@ -44,8 +44,8 @@
   <textarea
     style="font-family: {$font}; color: {$color}; font-size: {$size}px;"
     class="resize-y p-4 rounded focus:outline-none focus:shadow-outline"
-    in:fly={{ y: 200, duration: 1000 }}
-    out:fade
+    in:fly={{ y: 200, duration: 1000, delay: 300 }}
+    out:fade={{ duration: 300 }}
     bind:value={$text}
     {placeholder}
     name="content"
