@@ -1,18 +1,16 @@
 <script lang="ts">
+  import type { element } from 'svelte/internal';
   import { CORS_URL } from '../const';
 
-  import {
-    isURLAreaVisible,
-    // htmlContent,
-    isTextAreaVisible,
-    text,
-  } from '../stores';
+  import { isURLAreaVisible, isTextAreaVisible, text } from '../stores';
   import { formatHTML } from '../utils';
 
   let url: string;
   let htmlPromise;
+  let loading: boolean = false;
 
   const getHTML = async () => {
+    loading = true;
     const res = await fetch(CORS_URL + url);
     const html = await res.text();
 
@@ -25,6 +23,7 @@
       text.set(newText);
       isTextAreaVisible.set(true);
       isURLAreaVisible.set(false);
+      loading = false;
       //   return html;
     } else throw new Error('Unable to get website');
   };
@@ -54,8 +53,9 @@
       class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500
         hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded"
       on:click={handleSubmit}
+      disabled={loading}
       type="button">
-      Search
+      {#if loading}Searching...{:else}Search{/if}
     </button>
     <div class="feedback">
       <!-- {#await htmlPromise}

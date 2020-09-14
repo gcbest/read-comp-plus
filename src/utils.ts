@@ -95,7 +95,7 @@ export const updateTime = (wpm: string, textContent: string) => {
 export const formatHTML = (html: Document): string => {
         // find all p tags and combine
         const newTextContent = Array.from(html.querySelectorAll('p'))
-                .map(p => p.textContent.replace(/Advertisement/g, ''))
+                .map(p => p.textContent.replace(/^Advertisement$|^Supported\sby$/g, ''))
                 .join(' ');
         console.log(newTextContent);
         return newTextContent;
