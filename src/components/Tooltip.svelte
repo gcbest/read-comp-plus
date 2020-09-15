@@ -6,12 +6,14 @@
   /* Tooltip container */
   :global(.tooltip) {
     position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+    /* display: inline-block; */
+    /* border-bottom: 1px dotted black;  */
+    /* If you want dots under the hoverable text */
   }
 
   /* Tooltip text */
-  :global(.tooltip .tooltiptext) {
+  /* :global(.tooltip .tooltiptext) { */
+  .tooltiptext {
     visibility: hidden;
     width: 120px;
     background-color: #555;
@@ -33,7 +35,7 @@
   }
 
   /* Tooltip arrow */
-  :global(.tooltip .tooltiptext::after) {
+  .tooltiptext::after {
     content: '';
     position: absolute;
     top: 100%;

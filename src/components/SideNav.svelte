@@ -119,8 +119,9 @@
       </li>
       <div class="settings absolute">
         <li>
-          <label class="text-gray-300 font-semibold tooltip" for="wpm">Words Per
-            Minute
+          <label
+            class="text-gray-300 flex mb-2 font-semibold tooltip"
+            for="wpm">Words Per Minute <i class="material-icons ml-2"> help_outline </i>
             <Tooltip description={wpmTooltip} />
           </label>
           <input
@@ -135,7 +136,8 @@
             placeholder="e.g. 200 wpm" />
         </li>
         <li>
-          <label class="text-gray-300 font-semibold" for="font-size">Font Size</label>
+          <label class="text-gray-300 mb-2 font-semibold" for="font-size">Font
+            Size</label>
           <input
             id="font-size"
             name="font-size"
