@@ -52,7 +52,7 @@
     class="text-center"
     in:fly={{ y: 200, duration: 1000 }}
     out:fade={{ duration: 300 }}>
-    <label for="url">Enter Article URL:</label>
+    <label for="url">Enter an Article's Link:</label>
     <input
       name="url"
       class="input focus:outline-none focus:shadow-outline max-w-sm m-auto my-4"

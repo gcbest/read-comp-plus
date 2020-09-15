@@ -1,13 +1,14 @@
 <script lang="ts">
-  // export let handleClick: () => void;
+  import { TEXT_OPTIONS } from '../const';
   import { isTextAreaVisible } from '../stores';
 
-  export let handleClick;
+  export let handleClick: () => void;
+  export let type: TEXT_OPTIONS;
 </script>
 
 <style>
   .btn {
-    @apply font-bold py-2 px-4 rounded;
+    @apply font-bold px-12 py-12 rounded bg-teal-400 flex justify-center align-middle;
   }
   .btn-blue {
     @apply bg-blue-500 text-white;
@@ -17,6 +18,11 @@
   }
 </style>
 
-<button class="btn btn" on:click={handleClick}>
-  <slot />
+<button class="btn" on:click={handleClick}>
+  <span class="2xl">
+    <slot />
+  </span>
+  {#if type === TEXT_OPTIONS.TEXT}
+    <span class="material-icons"> subject </span>
+  {:else}<span class="material-icons"> web </span>{/if}
 </button>
