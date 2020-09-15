@@ -27,7 +27,7 @@
     margin: auto;
     display: block;
     background-color: #f5f5f5;
-    max-height: 60vh;
+    max-height: 55vh;
   }
 
   div {

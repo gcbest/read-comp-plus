@@ -19,7 +19,7 @@
 </style>
 
 <button class="btn" on:click={handleClick}>
-  <span class="2xl">
+  <span>
     <slot />
   </span>
   {#if type === TEXT_OPTIONS.TEXT}

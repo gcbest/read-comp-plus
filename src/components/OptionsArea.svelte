@@ -22,7 +22,7 @@
 {#if $isOptionsAreaVisible}
   <section in:fly={{ y: 200, duration: 1000 }} out:fade>
     <p class="text-center my-3">Hello and Welcome to Read Comp+!</p>
-    <div class="flex justify-evenly my-8">
+    <div class="flex justify-evenly my-6">
       <OptionBtn handleClick={handleTextClick} type={TEXT_OPTIONS.TEXT}>
         Text
       </OptionBtn>

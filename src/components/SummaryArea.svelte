@@ -29,6 +29,9 @@
     <p>{$reviewResponses.useCase}</p>
     <div class="mt-8 text-center">
       <Button {handleClick} green={true}>New Reading</Button>
+      <a href="https://coggle.it/" target="_blank" rel="noopener">
+        <Button blue={true}>Create MindMap</Button>
+      </a>
     </div>
   </section>
 {/if}
