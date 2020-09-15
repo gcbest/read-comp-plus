@@ -1,6 +1,7 @@
 <script lang="ts">
   import { fly } from 'svelte/transition';
   import Dropdown from './Dropdown.svelte';
+  import Tooltip from './Tooltip.svelte';
   import ToggleDarkMode from './ToggleDarkMode.svelte';
   import { open, wpm, font, size, animationTime, text } from '../stores';
   import { COLORS, FONTS } from '../const';
@@ -16,6 +17,8 @@
     if (name === 'wpm') updateTime($wpm, $text);
     else localStorage.setItem(name, value); // since it will be set for wpm in updateTime fn
   };
+
+  const wpmTooltip = '240 wpm is the average';
 </script>
 
 <style>
@@ -116,7 +119,10 @@
       </li>
       <div class="settings absolute">
         <li>
-          <label class="text-gray-300 font-semibold" for="wpm">Words Per Minute</label>
+          <label class="text-gray-300 font-semibold tooltip" for="wpm">Words Per
+            Minute
+            <Tooltip description={wpmTooltip} />
+          </label>
           <input
             id="wpm"
             name="wpm"

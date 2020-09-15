@@ -28,4 +28,4 @@ export const CORS_URL = 'https://cors-anywhere.herokuapp.com/';
 export enum TEXT_OPTIONS {
         TEXT,
         URL
-}
+};
