@@ -2,6 +2,5 @@
   "extends": "@tsconfig/svelte/tsconfig.json",
 
   "include": ["src/**/*"],
-  "exclude": ["node_modules/*", "public/*"],
-  "types": ["@types/jest"]
+  "exclude": ["node_modules/*", "public/*"]
 }
