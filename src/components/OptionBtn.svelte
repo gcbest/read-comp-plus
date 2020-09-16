@@ -8,13 +8,19 @@
 
 <style>
   .btn {
-    @apply font-bold px-12 py-12 rounded bg-teal-400 flex justify-center align-middle;
+    @apply font-bold px-10 py-10 rounded bg-teal-400 flex justify-center align-middle;
   }
   .btn-blue {
     @apply bg-blue-500 text-white;
   }
   .btn-blue:hover {
     @apply bg-blue-700;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .btn {
+      @apply px-6 py-6;
+    }
   }
 </style>
 

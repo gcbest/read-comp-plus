@@ -29,15 +29,10 @@
     background-color: #1d3040;
     color: #bfc2c7;
   }
-
-  main {
-    transition: margin-left 0.5s;
-    padding: 1rem;
-  }
 </style>
 
 <Tailwind />
-<main>
+<main class="px-4 py-3">
   <Header />
   <SideNav />
   <OptionsArea />

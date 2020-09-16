@@ -38,6 +38,12 @@
     background-color: #457b9d;
     /* color: #f1faee; */
   }
+
+  @media only screen and (max-height: 640px) {
+    textarea {
+      max-height: 50vh;
+    }
+  }
 </style>
 
 {#if $isTextAreaVisible}

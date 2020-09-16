@@ -63,6 +63,12 @@
     background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
     z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
   }
+
+  @media only screen and (max-width: 600px) {
+    .re-read {
+      display: none;
+    }
+  }
 </style>
 
 <section
@@ -92,6 +98,9 @@
       {:else}
         <Button handleClick={showSpeed} purple={true}>Adjust Speed</Button>
       {/if}
+      <span class="re-read">
+        <Button handleClick={reRead} green={true}>Re-read</Button>
+      </span>
       <Button handleClick={pause} yellow={true}>{pauseBtnText}</Button>
     {/if}
   </div>
