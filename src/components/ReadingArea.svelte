@@ -68,6 +68,11 @@
     .re-read {
       display: none;
     }
+
+    .btn-group {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
   }
 </style>
 
@@ -81,7 +86,7 @@
   <div>
     {#if $isReadingDoneAreaVisible}
       <div
-        class="flex justify-evenly mt-8"
+        class="flex justify-evenly my-8 btn-group"
         in:fade={{ duration: 300 }}
         out:fade={{ duration: 300 }}>
         <Button handleClick={reRead} green={true}>Re-read</Button>
@@ -89,9 +94,11 @@
       </div>
     {:else}
       <div
-        class="flex justify-evenly mt-8"
+        class="flex justify-evenly my-8 btn-group"
         in:fade={{ duration: 300 }}
         out:fade={{ duration: 300 }}>
+        <Button handleClick={pause} yellow={true}>{pauseBtnText}</Button>
+
         {#if isSpeedVisible}
           <span class="text-center">
             <label for="wpm-adjust">Current Speed: {$wpm} WPM</label>
@@ -110,7 +117,6 @@
         <span class="re-read">
           <Button handleClick={reRead} green={true}>Re-read</Button>
         </span>
-        <Button handleClick={pause} yellow={true}>{pauseBtnText}</Button>
       </div>
     {/if}
   </div>

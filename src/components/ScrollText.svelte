@@ -69,13 +69,13 @@
   }
   @keyframes scroll-up {
     0% {
-      -moz-transform: translateY(1%); /* Browser bug fix */
-      -webkit-transform: translateY(1%); /* Browser bug fix */
+      -moz-transform: translateY(1%);
+      -webkit-transform: translateY(1%);
       transform: translateY(1%);
     }
     100% {
-      -moz-transform: translateY(var(--pixelsY)); /* Browser bug fix */
-      -webkit-transform: translateY(var(--pixelsY)); /* Browser bug fix */
+      -moz-transform: translateY(var(--pixelsY));
+      -webkit-transform: translateY(var(--pixelsY));
       transform: translateY(var(--pixelsY));
     }
   }
