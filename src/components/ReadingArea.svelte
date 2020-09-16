@@ -78,30 +78,40 @@
   <div class="overlay rounded" in:fly={{ y: 200, duration: 750, delay: 750 }} />
   <ScrollText time={$animationTime} />
 
-  <div class="flex justify-evenly mt-8">
+  <div>
     {#if $isReadingDoneAreaVisible}
-      <Button handleClick={reRead} green={true}>Re-read</Button>
-      <Button handleClick={review} blue={true}>Done</Button>
-    {:else}
-      {#if isSpeedVisible}
-        <span class="text-center">
-          <label for="wpm-adjust">Current Speed: {$wpm} WPM</label>
-          <input
-            class="bg-gray-300 h-8 rounded cursor-pointer"
-            on:change={() => updateTime($wpm, $text)}
-            bind:value={$wpm}
-            type="range"
-            name="wpm-adjust"
-            min="10"
-            max="2000" />
-        </span>
-      {:else}
-        <Button handleClick={showSpeed} purple={true}>Adjust Speed</Button>
-      {/if}
-      <span class="re-read">
+      <div
+        class="flex justify-evenly mt-8"
+        in:fade={{ duration: 300 }}
+        out:fade={{ duration: 300 }}>
         <Button handleClick={reRead} green={true}>Re-read</Button>
-      </span>
-      <Button handleClick={pause} yellow={true}>{pauseBtnText}</Button>
+        <Button handleClick={review} blue={true}>Done</Button>
+      </div>
+    {:else}
+      <div
+        class="flex justify-evenly mt-8"
+        in:fade={{ duration: 300 }}
+        out:fade={{ duration: 300 }}>
+        {#if isSpeedVisible}
+          <span class="text-center">
+            <label for="wpm-adjust">Current Speed: {$wpm} WPM</label>
+            <input
+              class="bg-gray-300 h-8 rounded cursor-pointer"
+              on:change={() => updateTime($wpm, $text)}
+              bind:value={$wpm}
+              type="range"
+              name="wpm-adjust"
+              min="10"
+              max="2000" />
+          </span>
+        {:else}
+          <Button handleClick={showSpeed} purple={true}>Adjust Speed</Button>
+        {/if}
+        <span class="re-read">
+          <Button handleClick={reRead} green={true}>Re-read</Button>
+        </span>
+        <Button handleClick={pause} yellow={true}>{pauseBtnText}</Button>
+      </div>
     {/if}
   </div>
 </section>
