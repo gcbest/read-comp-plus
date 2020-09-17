@@ -7,6 +7,11 @@
 </script>
 
 <style>
+  a {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+      'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+
   li {
     margin: 0 1rem;
   }
@@ -46,7 +51,7 @@
 
 <nav class="relative">
   <header id="myHeader" class="text-blue-500 text-2xl text-center m-auto">
-    <a href="/"> Read Comp+ </a>
+    <a class="font-semibold" href="/"> Read Comp+ </a>
   </header>
   <ul>
     <li class="darkModeBtn">

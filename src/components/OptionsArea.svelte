@@ -31,10 +31,11 @@
           Hello and Welcome to Read Comp+!
         </p>
         <p class="max-w-2xl text-center mx-auto">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error
-          aspernatur voluptate doloremque quia delectus numquam repudiandae
-          alias dolorem! Vel ipsum facilis ratione nihil repudiandae consequatur
-          aliquid? Harum repudiandae excepturi veritatis!
+          Your #1 destination for increasing your reading speed! Choose between
+          copying and pasting your own block of text vs linking to a webpage
+          with an article. In the settings menu, you can determine how fast you
+          would like to read (words per minute). You can also choose your text
+          size, font, and color.
         </p>
       </header>
     {/if}

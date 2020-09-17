@@ -97,6 +97,5 @@ export const formatHTML = (html: Document): string => {
         const newTextContent = Array.from(html.querySelectorAll('p'))
                 .map(p => p.textContent.replace(/^Advertisement$|^Supported\sby$/g, ''))
                 .join(' ');
-        console.log(newTextContent);
         return newTextContent;
 };
