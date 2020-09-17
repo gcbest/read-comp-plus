@@ -17,7 +17,6 @@
 
     const parser = new DOMParser();
     const doc = parser.parseFromString(html, 'text/html');
-    console.log(doc);
 
     if (res.ok) {
       const newText = formatHTML(doc);
