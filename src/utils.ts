@@ -78,8 +78,6 @@ export const reset = () => {
 export const calculateScrollSpeed = (wpm: number, numWords: number): string => {
         const numMinutes = numWords / wpm;
         const numSeconds = Math.floor(numMinutes * 60);
-        console.log(numWords);
-        console.log(numSeconds);
         return `${numSeconds}s`;
 };
 

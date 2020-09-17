@@ -21,7 +21,7 @@
   };
 </script>
 
-<style>
+<style global>
   textarea {
     width: 85%;
     margin: auto;
@@ -34,7 +34,7 @@
     text-align: center;
   }
 
-  :global(body.dark-mode) textarea {
+  body.dark-mode textarea {
     background-color: #457b9d;
     /* color: #f1faee; */
   }

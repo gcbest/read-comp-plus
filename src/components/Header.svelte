@@ -10,14 +10,11 @@
   a {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
       'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-decoration: none;
   }
 
   li {
     margin: 0 1rem;
-  }
-
-  :global(a:hover) {
-    text-decoration: none;
   }
 
   button {

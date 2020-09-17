@@ -2,17 +2,18 @@
   export let description: string;
 </script>
 
-<style>
+<style global>
   /* Tooltip container */
-  :global(.tooltip) {
+  .tooltip {
     position: relative;
-    /* display: inline-block; */
-    /* border-bottom: 1px dotted black;  */
-    /* If you want dots under the hoverable text */
   }
 
-  /* Tooltip text */
-  /* :global(.tooltip .tooltiptext) { */
+  /* Show the tooltip text when you mouse over the tooltip container */
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+
   .tooltiptext {
     visibility: hidden;
     width: 120px;
@@ -44,12 +45,6 @@
     border-width: 5px;
     border-style: solid;
     border-color: #555 transparent transparent transparent;
-  }
-
-  /* Show the tooltip text when you mouse over the tooltip container */
-  :global(.tooltip:hover .tooltiptext) {
-    visibility: visible;
-    opacity: 1;
   }
 </style>
 

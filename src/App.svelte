@@ -16,7 +16,7 @@
   }
 </script>
 
-<style lang="scss">
+<style global lang="scss">
   :root {
     // LIGHT THEME
     --main-theme-bg: #d7d6d6;
@@ -34,14 +34,14 @@
   }
 
   // LIGHT THEME
-  :global(body) {
+  body {
     background-color: var(--main-theme-bg);
     color: var(--main-theme-color);
     transition: background-color 0.5s;
   }
 
   // DARK THEME
-  :global(body.dark-mode) {
+  body.dark-mode {
     background-color: var(--dark-theme-bg);
     color: var(--dark-theme-color);
   }
