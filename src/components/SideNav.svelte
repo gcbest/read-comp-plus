@@ -77,7 +77,7 @@
   }
 
   /* DARK THEME */
-  :global(body.dark-mode) .sidenav {
+  body.dark-mode .sidenav {
     background-color: var(--dark-side-nav-bg);
     color: var(--dark-side-nav-color);
   }

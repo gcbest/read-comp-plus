@@ -14,23 +14,11 @@
 </script>
 
 <style>
-  /* .btn {
-    @apply font-bold py-2 px-4 rounded;
-    text-transform: uppercase;
-  }
-
-  .btn-blue {
-    @apply bg-blue-500 text-white;
-  }
-
-  .btn-blue:hover {
-    @apply bg-blue-700;
-  } */
   button {
     @apply px-2 pt-2 border border-blue-500 rounded inline-block align-middle;
   }
 
-  :global(body.dark-mode) button {
+  body.dark-mode button {
     background-color: #0084f6;
     color: white;
   }

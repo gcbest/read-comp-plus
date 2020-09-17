@@ -6,7 +6,7 @@
 
 <textarea
   {name}
-  class="focus:outline-none focus:shadow-outline my-2 p-4 rounded"
+  class="bg-white focus:outline-none focus:shadow-outline my-2 p-4 rounded w-4/5"
   id=""
   cols="30"
   rows="7"
