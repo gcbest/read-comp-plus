@@ -1,14 +1,14 @@
 <script lang="ts">
   import { darkMode, theme, body } from '../stores';
 
-  const updateLocalStorage = () => {
-    if (theme) localStorage.removeItem('theme');
-    else localStorage.setItem('theme', 'dark');
+  const updateLocalStorage = (darkTheme: boolean) => {
+    if (darkTheme) localStorage.setItem('theme', 'dark');
+    else localStorage.removeItem('theme');
   };
 
   const toggle = () => {
-    updateLocalStorage();
-    darkMode.set(!$darkMode);
+    $darkMode = !$darkMode;
+    updateLocalStorage($darkMode);
     body.classList.toggle('dark-mode');
   };
 </script>
