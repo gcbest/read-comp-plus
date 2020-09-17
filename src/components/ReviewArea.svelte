@@ -16,7 +16,7 @@
 
 <style>
   .input {
-    @apply bg-white border border-gray-300 rounded-lg py-2 px-4 mb-2 block w-full appearance-none leading-normal;
+    @apply bg-white border border-gray-300 rounded-lg py-2 px-4 mb-2 block w-4/5 m-auto appearance-none leading-normal;
   }
 
   @media screen and (min-width: 500px) {
