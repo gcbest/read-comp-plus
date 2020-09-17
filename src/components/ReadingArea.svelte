@@ -99,6 +99,10 @@
         out:fade={{ duration: 300 }}>
         <Button handleClick={pause} yellow={true}>{pauseBtnText}</Button>
 
+        <span class="re-read">
+          <Button handleClick={reRead} green={true}>Re-read</Button>
+        </span>
+
         {#if isSpeedVisible}
           <span class="text-center">
             <label for="wpm-adjust">Current Speed: {$wpm} WPM</label>
@@ -114,9 +118,6 @@
         {:else}
           <Button handleClick={showSpeed} purple={true}>Adjust Speed</Button>
         {/if}
-        <span class="re-read">
-          <Button handleClick={reRead} green={true}>Re-read</Button>
-        </span>
       </div>
     {/if}
   </div>

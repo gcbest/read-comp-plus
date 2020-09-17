@@ -40,13 +40,12 @@
     padding: 1rem;
     text-decoration: none;
     font-size: 25px;
-    /* color: #818181; */
     display: block;
     transition: 0.3s;
   }
 
   .sidenav span:hover {
-    color: #f1f1f1;
+    color: var(--side-theme-color);
   }
 
   .sidenav .closebtn {

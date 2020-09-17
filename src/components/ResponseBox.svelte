@@ -9,6 +9,6 @@
   class="focus:outline-none focus:shadow-outline my-2 p-4 rounded"
   id=""
   cols="30"
-  rows="8"
+  rows="7"
   {placeholder}
   bind:value />

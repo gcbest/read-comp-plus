@@ -15,6 +15,13 @@
   p {
     @apply my-2;
   }
+
+  @media only screen and (max-width: 600px) {
+    .btn-group {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+  }
 </style>
 
 {#if $isSummaryAreaVisible}
@@ -27,7 +34,7 @@
     <p>{$reviewResponses.mainTakeAway}</p>
     <h3>Uses:</h3>
     <p>{$reviewResponses.useCase}</p>
-    <div class="mt-8 text-center">
+    <div class="my-8 flex justify-around btn-group">
       <Button {handleClick} green={true}>New Reading</Button>
       <a href="https://coggle.it/" target="_blank" rel="noopener">
         <Button blue={true}>Create MindMap</Button>

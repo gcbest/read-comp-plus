@@ -17,17 +17,31 @@
 </script>
 
 <style lang="scss">
+  :root {
+    // LIGHT THEME
+    --main-theme-bg: #d7d6d6;
+    --main-theme-color: #1d3557;
+    --main-accent-color: purple;
+    --text-options-bg: #457b9d;
+    --text-options-color: #382317;
+
+    // DARK THEME
+    --dark-theme-bg: #1d3040;
+    --dark-theme-color: #bfc2c7;
+    --dark-accent-color: #402a1d;
+  }
+
   // LIGHT THEME
   :global(body) {
-    background-color: #d7d6d6;
-    color: #1d3557;
+    background-color: var(--main-theme-bg);
+    color: var(--main-theme-color);
     transition: background-color 0.5s;
   }
 
   // DARK THEME
   :global(body.dark-mode) {
-    background-color: #1d3040;
-    color: #bfc2c7;
+    background-color: var(--dark-theme-bg);
+    color: var(--dark-theme-color);
   }
 </style>
 

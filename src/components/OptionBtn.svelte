@@ -8,10 +8,12 @@
 
 <style>
   .btn {
-    @apply font-bold px-10 py-10 rounded bg-teal-400 flex justify-center align-middle;
+    @apply font-bold px-10 py-10 rounded flex justify-center align-middle border-none;
+    color: var(--text-options-color);
+    background-color: var(--text-options-bg);
   }
   .btn-blue {
-    @apply bg-blue-500 text-white;
+    @apply bg-blue-500;
   }
   .btn-blue:hover {
     @apply bg-blue-700;
@@ -24,7 +26,9 @@
   }
 </style>
 
-<button class="btn" on:click={handleClick}>
+<button
+  class="btn focus:outline-none focus:shadow-outline"
+  on:click={handleClick}>
   <span>
     <slot />
   </span>
