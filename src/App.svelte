@@ -21,14 +21,16 @@
     // LIGHT THEME
     --main-theme-bg: #d7d6d6;
     --main-theme-color: #1d3557;
-    --main-accent-color: purple;
     --text-options-bg: #457b9d;
     --text-options-color: #382317;
+    --side-nav-bg: #a8dadc;
 
     // DARK THEME
     --dark-theme-bg: #1d3040;
     --dark-theme-color: #bfc2c7;
     --dark-accent-color: #402a1d;
+    --dark-side-nav-bg: #71a2c1;
+    --dark-side-nav-color: #312f2f;
   }
 
   // LIGHT THEME

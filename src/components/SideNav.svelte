@@ -29,8 +29,8 @@
     z-index: 3;
     top: 0;
     right: 0;
-    /* background-color: #a8dadc; */
-    background-color: #a8dadc;
+    background-color: var(--side-nav-bg);
+    color: var(--main-theme-color);
     overflow-x: hidden;
     transition: 0.3s;
     padding-top: 60px;
@@ -45,7 +45,7 @@
   }
 
   .sidenav span:hover {
-    color: var(--side-theme-color);
+    color: var(--text-options-color);
   }
 
   .sidenav .closebtn {
@@ -78,11 +78,8 @@
 
   /* DARK THEME */
   :global(body.dark-mode) .sidenav {
-    /* background-color: #457b9d; */
-    /* background-color: #5590b4; */
-    background-color: #71a2c1;
-    color: #bfc2c7;
-    /* @apply text-red-400; */
+    background-color: var(--dark-side-nav-bg);
+    color: var(--dark-side-nav-color);
   }
 
   @media screen and (max-width: 600px) {
@@ -118,9 +115,8 @@
       </li>
       <div class="settings absolute">
         <li>
-          <label
-            class="text-gray-300 flex mb-2 font-semibold tooltip"
-            for="wpm">Words Per Minute <i class="material-icons ml-2"> help_outline </i>
+          <label class="flex mb-2 font-semibold tooltip" for="wpm">Words Per
+            Minute <i class="material-icons ml-2"> help_outline </i>
             <Tooltip description={wpmTooltip} />
           </label>
           <input
@@ -135,8 +131,7 @@
             placeholder="e.g. 200 wpm" />
         </li>
         <li>
-          <label class="text-gray-300 mb-2 font-semibold" for="font-size">Font
-            Size</label>
+          <label class="mb-2 font-semibold" for="font-size">Font Size</label>
           <input
             id="font-size"
             name="font-size"
