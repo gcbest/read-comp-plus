@@ -3,6 +3,12 @@ const sveltePreprocess = require('svelte-preprocess');
 
 module.exports = {
         preprocess: sveltePreprocess({
-                tsconfigFile: './tsconfig.json',
+                postcss: true,
+                scss: {
+                        includePaths: ['src'],
+                        postcss: {
+                                plugins: [require('autoprefixer')],
+                        },
+                },
         }),
 };
