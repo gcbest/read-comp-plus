@@ -28,6 +28,7 @@
 
 <button
   class="btn focus:outline-none focus:shadow-outline"
+  data-testid="opt-btn"
   on:click={handleClick}>
   <span>
     <slot />

@@ -26,7 +26,7 @@
 {#if $isOptionsAreaVisible}
   <section in:fly={{ y: 200, duration: 1000 }} out:fade>
     {#if isDescriptionVisible}
-      <header transition:slide={{ duration: 1000 }}>
+      <header data-testid="description" transition:slide={{ duration: 1000 }}>
         <p class="text-center text-xl font-bold my-3">
           Hello and Welcome to Read Comp+!
         </p>
