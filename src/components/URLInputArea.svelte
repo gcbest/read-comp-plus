@@ -67,6 +67,7 @@
         class="input focus:outline-none focus:shadow-outline max-w-sm m-auto
           my-4"
         type="url"
+        data-testid="article-url"
         on:input={handleChange}
         placeholder="e.g. https://medium.com/the-mission/the-kaizen-approach-to-achieving-your-biggest-goal-the-philosophy-of-constant-improvement-172033f8346"
         bind:value={url} />
@@ -74,6 +75,7 @@
         class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500
           hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded"
         disabled={loading || !url.length}
+        data-testid="search-btn"
         type="submit">
         {#if loading}Searching...{:else}Search{/if}
       </button>
