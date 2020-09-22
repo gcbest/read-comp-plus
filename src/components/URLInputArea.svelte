@@ -60,7 +60,7 @@
     class="text-center"
     in:fly={{ y: 200, duration: 1000 }}
     out:fade={{ duration: 300 }}>
-    <form on:submit|preventDefault={handleSubmit}>
+    <form on:submit|preventDefault={handleSubmit} data-testid="search-form">
       <label for="url">Enter an Article's Link:</label>
       <input
         name="url"

@@ -1,7 +1,9 @@
 require('@testing-library/jest-dom/extend-expect');
 const { render, cleanup, fireEvent } = require('@testing-library/svelte');
 const URLInputArea = require('../components/URLInputArea.svelte');
-const { isURLAreaVisible, isTextAreaVisible, text } = require('../stores.ts');
+// const { getHTML } = require('../components/URLInputArea.svelte');
+
+const { isURLAreaVisible } = require('../stores.ts');
 
 afterEach(() => cleanup());
 
@@ -20,7 +22,11 @@ describe('URLInput', () => {
                 expect(searchBtn).toBeInTheDocument();
         });
 
-        it('should get data from a website', () => {
-                expect(2).toBe(2);
+        it('should show "Searching..." when form is submitted', async () => {
+                const { getByTestId } = render(URLInputArea);
+                const searchForm = getByTestId('search-form');
+                const searchBtn = getByTestId('search-btn');
+                await fireEvent.submit(searchForm);
+                expect(searchBtn).toHaveTextContent('Searching...');
         });
 });
