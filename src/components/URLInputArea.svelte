@@ -10,15 +10,18 @@
   let hasFetchError: boolean = false;
   let errMsg: string = '';
 
-  const getHTML = async () => {
+  // export const getHTML = async () => {
+  export async function getHTML() {
     loading = true;
     const res = await fetch(CORS_URL + url);
     const html = await res.text();
 
+    // convert into HTML elements
     const parser = new DOMParser();
     const doc = parser.parseFromString(html, 'text/html');
 
     if (res.ok) {
+      // get text from html elements
       const newText = formatHTML(doc);
       if (!newText) throw new Error('Unable to find article details');
 
@@ -31,7 +34,7 @@
       loading = false;
       throw new Error('Unable to get website');
     }
-  };
+  }
 
   const showError = (err: Error) => {
     hasFetchError = true;
