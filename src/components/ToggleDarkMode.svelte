@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { darkMode, theme, body } from '../stores';
+  import { darkMode, body } from '../stores';
 
   const updateLocalStorage = (darkTheme: boolean) => {
     if (darkTheme) localStorage.setItem('theme', 'dark');
