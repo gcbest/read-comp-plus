@@ -54,6 +54,34 @@
     z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
   }
 
+  .blinking {
+    animation: blinkingText 1.2s infinite;
+    position: absolute;
+    margin: auto;
+    font-size: 3rem;
+    top: 25%;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+  @keyframes blinkingText {
+    0% {
+      color: #fff;
+    }
+    49% {
+      color: #fff;
+    }
+    60% {
+      color: transparent;
+    }
+    99% {
+      color: transparent;
+    }
+    100% {
+      color: #fff;
+    }
+  }
+
   @media only screen and (max-width: 600px) {
     .re-read {
       display: none;
@@ -73,7 +101,10 @@
   <div
     class="overlay rounded"
     on:click={pause}
-    in:fly={{ y: 200, duration: 750, delay: 750 }} />
+    in:fly={{ y: 200, duration: 750, delay: 750 }}>
+    {#if $pauseBtnText === 'Resume'}<span class="blinking">Paused</span>{/if}
+  </div>
+
   <ScrollText time={$animationTime} />
 
   <div>
