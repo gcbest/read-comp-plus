@@ -7,27 +7,17 @@
     wpm,
     text,
     animationTime,
+    pauseBtnText,
   } from '../stores';
   import ScrollText from './ScrollText.svelte';
   import Button from './Button.svelte';
-  import { togglePause, updateTime } from '../utils';
-  import { onMount } from 'svelte';
+  import { pause, updateTime } from '../utils';
 
   let isSpeedVisible = false;
-  let pauseBtnText = 'Pause';
 
   updateTime($wpm, $text);
 
   const showSpeed = () => (isSpeedVisible = true);
-
-  const pause = () => {
-    const textP: any = document.querySelector('.scroll-up p');
-    const { animationPlayState: currentPlayState } = textP.style;
-    textP.style.animationPlayState = togglePause(currentPlayState); // updated play state
-
-    pauseBtnText =
-      textP.style.animationPlayState === 'paused' ? 'Resume' : 'Pause';
-  };
 
   const reRead = () => {
     isReadingAreaVisible.set(false);
@@ -80,7 +70,10 @@
   class="relative"
   in:fly={{ y: 200, duration: 750, delay: 500 }}
   out:fade={{ duration: 500 }}>
-  <div class="overlay rounded" in:fly={{ y: 200, duration: 750, delay: 750 }} />
+  <div
+    class="overlay rounded"
+    on:click={pause}
+    in:fly={{ y: 200, duration: 750, delay: 750 }} />
   <ScrollText time={$animationTime} />
 
   <div>
@@ -97,7 +90,7 @@
         class="flex justify-evenly my-8 btn-group"
         in:fade={{ duration: 300 }}
         out:fade={{ duration: 300 }}>
-        <Button handleClick={pause} yellow={true}>{pauseBtnText}</Button>
+        <Button handleClick={pause} yellow={true}>{$pauseBtnText}</Button>
 
         <span class="re-read">
           <Button handleClick={reRead} green={true}>Re-read</Button>

@@ -22,6 +22,7 @@ export const wpm: Writable<string> = writable(localStorage.getItem('wpm') || '25
 export const font: Writable<string> = writable(localStorage.getItem('font') || 'Times New Roman');
 export const color: Writable<string> = writable(localStorage.getItem('color') || 'black');
 export const size: Writable<string> = writable(localStorage.getItem('font-size') || '16');
-// export const htmlContent: Writable<string> = writable('');
+
+export const pauseBtnText: Writable<string> = writable('Pause');
 
 export const reviewResponses: Writable<REVIEW_RESPONSES> = writable(DEFAULT_RESPONSES);

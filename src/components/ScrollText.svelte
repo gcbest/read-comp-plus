@@ -1,15 +1,8 @@
 <script lang="ts">
   import { onMount } from 'svelte';
 
-  import {
-    text,
-    font,
-    color,
-    size,
-    wpm,
-    isReadingDoneAreaVisible,
-  } from '../stores';
-  import { whichAnimationEvent } from '../utils';
+  import { text, font, color, size, isReadingDoneAreaVisible } from '../stores';
+  import { whichAnimationEvent, pause } from '../utils';
   export let time: string;
   let pixelsY;
 
@@ -81,7 +74,10 @@
   }
 </style>
 
-<div class="scroll-up" style="--time: {time}; --pixelsY: {pixelsY}">
+<div
+  class="scroll-up"
+  style="--time: {time}; --pixelsY: {pixelsY}"
+  on:click={pause}>
   <p style="font-family: {$font}; color: {$color}; font-size: {$size}px;">
     {$text}
   </p>

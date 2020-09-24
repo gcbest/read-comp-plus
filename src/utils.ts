@@ -8,6 +8,7 @@ import {
         text,
         reviewResponses,
         animationTime,
+        pauseBtnText,
 } from './stores';
 
 export const clickOutside = (node, { enabled: initialEnabled, cb }) => {
@@ -96,4 +97,14 @@ export const formatHTML = (html: Document): string => {
                 .map(p => p.textContent.replace(/^Advertisement$|^Supported\sby$/g, ''))
                 .join(' ');
         return newTextContent;
+};
+
+export const pause = () => {
+        const textP: any = document.querySelector('.scroll-up p');
+        const { animationPlayState: currentPlayState } = textP.style;
+        textP.style.animationPlayState = togglePause(currentPlayState); // updated play state
+
+        const textContent = textP.style.animationPlayState === 'paused' ? 'Resume' : 'Pause';
+
+        pauseBtnText.set(textContent);
 };
