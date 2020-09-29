@@ -56,6 +56,11 @@
   .input {
     @apply bg-white border border-gray-300 rounded-lg py-2 px-4 mb-2 block w-full appearance-none leading-normal;
   }
+
+  button:disabled {
+    color: #000000b0;
+    @apply opacity-50 cursor-not-allowed;
+  }
 </style>
 
 {#if $isURLAreaVisible}
@@ -67,7 +72,7 @@
       <label for="url">Enter an Article's Link:</label>
       <input
         name="url"
-        class="input focus:outline-none focus:shadow-outline max-w-sm m-auto
+        class="input focus:outline-none focus:shadow-outline max-w-sm m-auto text-black
           my-4"
         type="url"
         data-testid="article-url"
@@ -76,7 +81,7 @@
         bind:value={url} />
       <button
         class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500
-          hover:border-teal-700 text-sm border-4 text-white mt-4 py-1 px-2
+          hover:border-teal-700 text-sm border-4 text-white mt-4 font-bold py-4 px-8 rounded
           rounded font-bold py-4 px-8 rounded"
         disabled={loading || !url.length}
         data-testid="search-btn"
