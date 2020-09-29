@@ -76,7 +76,7 @@ export const reset = () => {
         isSummaryAreaVisible.set(false);
 };
 
-export const calculateScrollSpeed = (wpm: number, numWords: number): string => {
+const calculateScrollSpeed = (wpm: number, numWords: number): string => {
         const numMinutes = numWords / wpm;
         const numSeconds = Math.floor(numMinutes * 60);
         return `${numSeconds}s`;

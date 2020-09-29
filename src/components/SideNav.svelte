@@ -3,9 +3,9 @@
   import Dropdown from './Dropdown.svelte';
   import Tooltip from './Tooltip.svelte';
   import ToggleDarkMode from './ToggleDarkMode.svelte';
-  import { open, wpm, font, size, animationTime, text } from '../stores';
+  import { open, wpm, size, text } from '../stores';
   import { COLORS, FONTS } from '../const';
-  import { clickOutside, calculateScrollSpeed, updateTime } from '../utils';
+  import { clickOutside, updateTime } from '../utils';
 
   const fontOptions = [...Object.keys(FONTS)];
   const colorOptions = [...Object.keys(COLORS)];
@@ -116,7 +116,8 @@
       <div class="settings absolute">
         <li>
           <label class="flex mb-2 font-semibold tooltip" for="wpm">Words Per
-            Minute <i class="material-icons ml-2"> help_outline </i>
+            Minute
+            <i class="material-icons ml-2"> help_outline </i>
             <Tooltip description={wpmTooltip} />
           </label>
           <input

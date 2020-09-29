@@ -3,6 +3,7 @@ export const COLORS = {
         red: 'red',
         green: 'green',
         black: 'black',
+        white: 'white',
         gray: 'gray'
 };
 
