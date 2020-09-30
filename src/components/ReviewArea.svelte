@@ -16,7 +16,7 @@
 
 <style>
   .input {
-    @apply bg-white border border-gray-300 rounded-lg py-2 px-4 mb-2 block w-4/5 m-auto appearance-none leading-normal;
+    @apply border border-gray-300 rounded-lg py-2 px-4 mb-2 block w-4/5 m-auto appearance-none leading-normal;
   }
 
   @media screen and (min-width: 500px) {
@@ -28,7 +28,7 @@
 
 {#if $isReviewAreaVisible}
   <section
-    class="flex flex-col justify-evenly align-middle mt-8 mb-2 mx-auto"
+    class="flex flex-col justify-evenly align-middle mt-8 mb-2 mx-auto bg-"
     in:fly={{ y: 200, duration: 1000, delay: 500 }}
     out:fade={{ duration: 500 }}>
     <input

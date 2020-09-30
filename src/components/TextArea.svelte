@@ -34,6 +34,10 @@
     text-align: center;
   }
 
+  body.dark-mode input {
+    background-color: #457b9d;
+  }
+
   body.dark-mode textarea {
     background-color: #457b9d;
     /* color: #f1faee; */
