@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { writable, Writable } from 'svelte/store';
+import { get, writable, Writable } from 'svelte/store';
 import { DEFAULT_RESPONSES, REVIEW_RESPONSES } from './const';
 
 export const { body }: { body: HTMLElement } = window.document;
@@ -20,7 +20,9 @@ export const animationTime: Writable<string> = writable('');
 export const theme: string | null = localStorage.getItem('theme');
 export const wpm: Writable<string> = writable(localStorage.getItem('wpm') || '250');
 export const font: Writable<string> = writable(localStorage.getItem('font') || 'Times New Roman');
-export const color: Writable<string> = writable(localStorage.getItem('color') || 'black');
+export const color: Writable<string> = writable(
+        localStorage.getItem('color') || (localStorage.getItem('theme') ? 'white' : 'black')
+);
 export const size: Writable<string> = writable(localStorage.getItem('font-size') || '16');
 
 export const pauseBtnText: Writable<string> = writable('Pause');
